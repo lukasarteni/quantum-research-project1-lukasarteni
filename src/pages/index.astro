@@ -1,8 +1,14 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Select } from "free-astro-components";
+
+
+let data1 = "test";
+let data2 = "test";
+
 ---
 
 <!doctype html>
@@ -14,8 +20,99 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Header />
 		<main>
 			<h1>CHSH Tinkerer</h1>
-			
-			
+			<div>
+				<Select
+					label="Alice Strategy"
+					options={[
+						{ value: "1", label: "a = 0" },
+						{ value: "2", label: "a = 1" },
+						{ value: "3", label: "a = x" },
+						{ value: "4", label: "a = !x" },
+					]}
+					placeholder="Choose an option"
+				/>
+
+				<Select
+					label="Bob Strategy"
+					options={[
+						{ value: "1", label: "b = 0" },
+						{ value: "2", label: "b = 1" },
+						{ value: "3", label: "b = x" },
+						{ value: "4", label: "b = !y" },
+					]}
+					placeholder="Choose an option"
+				/>
+
+
+				<style>
+					.table_component {
+						overflow: auto;
+						width: 100%;
+					}
+
+					.table_component table {
+						border: 1px solid #dededf;
+						height: 100%;
+						width: 100%;
+						table-layout: fixed;
+						border-collapse: collapse;
+						border-spacing: 1px;
+						text-align: left;
+					}
+
+					.table_component caption {
+						caption-side: top;
+						text-align: left;
+					}
+
+					.table_component th {
+						border: 1px solid #dededf;
+						background-color: #e4e9ec;
+						color: #000000;
+						padding: 5px;
+					}
+
+					.table_component td {
+						border: 1px solid #dededf;
+						background-color: #ffffff;
+						color: #000000;
+						padding: 5px;
+					}
+				</style>
+				<div class="table_component" role="region" tabindex="0">
+					<table>
+						<caption>Computational Table</caption>
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>Bob</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>y = 0</th>
+								<th>y = 1</th>
+							</tr>
+							<tr>
+								<th>Alice</th>
+								<th>x = 0</th>
+								<td><script>console.log('Hi')</script></td>
+								<td id="data2"></td>
+							</tr>
+							<tr>
+								<th></th>
+								<th>x = 1</th>
+								<td id="data1"></td>
+								<td id="data2"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
