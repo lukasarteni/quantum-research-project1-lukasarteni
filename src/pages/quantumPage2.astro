@@ -1,0 +1,75 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Select } from "free-astro-components";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>CHSH Tinkerer</h1>
+			<p>quantum part 2</p>
+			<div>
+				<button class="alert">Click me!</button>
+
+				<script>
+					// Find all buttons with the `alert` class on the page.
+					const buttons = document.querySelectorAll("button.alert");
+
+					// Handle clicks on each button.
+					buttons.forEach((button) => {
+						button.addEventListener("click", () => {
+							alert("meowth!");
+						});
+					});
+				</script>
+			</div>
+			<Select
+				class="selectclass1"
+				label="Select an option"
+				options={[
+					{ value: "1", label: "Fortnite 1" },
+					{ value: "2", label: "Option 2" },
+					{ value: "3", label: "Option 3" },
+				]}
+			/>
+			<script>
+				// Find all selects with the `selectclass1` class on the page.
+				//const selects2 = ;
+
+				// Handle clicks on each button.
+				document
+					.querySelectorAll("Select.selectclass1")
+					.forEach((Select) => {
+						Select.addEventListener("click", () => {
+							alert("FORTNITE!");
+						});
+					});
+			</script>
+
+			<div>
+				<select id="fruitSelect">
+					<option value="apple">Apple</option>
+					<option value="banana">Banana</option>
+					<option value="orange">Orange</option>
+				</select>
+			</div>
+			<div>
+				<Select id="fruitSelect">
+					<option value="apple" , label="Apple"></option>
+					<option value="banana">Banana</option>
+					<option value="orange">Orange</option>
+				</Select>
+			</div>
+			
+		</main>
+		<Footer />
+	</body>
+</html>
