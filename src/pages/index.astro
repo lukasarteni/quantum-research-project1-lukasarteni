@@ -11,13 +11,13 @@ let data1 = "test";
 let data2 = "test";
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
+
 		<main>
 			<h1>CHSH Tinkerer</h1>
 			<Image src={chshimage} alt="chsh game" width="500" height="500" />
@@ -25,45 +25,22 @@ let data2 = "test";
 			<div>
 				<label for="aliceStrategy">Alice Strategy:</label>
 				<select id="aliceStrategy" name="aliceStrategy">
-					<option value="1">a = 0</option>
-					<option value="2">a = 1</option>
-					<option value="3">a = x</option>
-					<option value="4">a = !x</option>
+					<option value="0">a = 0</option>
+					<option value="1">a = 1</option>
+					<option value="2">a = x</option>
+					<option value="3">a = !x</option>
 				</select>
 
 				<br /><br />
 
 				<label for="bobStrategy">Bob Strategy:</label>
 				<select id="bobStrategy" name="bobStrategy">
-					<option value="1">b = 0</option>
-					<option value="2">b = 1</option>
-					<option value="3">b = y</option>
-					<option value="4">b = !y</option>
+					<option value="0">b = 0</option>
+					<option value="1">b = 1</option>
+					<option value="2">b = y</option>
+					<option value="3">b = !y</option>
 				</select>
-				<script>
-					var aliceselectedText = 1;
-					// Alice dropdown alert
-					document
-						.getElementById("aliceStrategy")
-						.addEventListener("change", function () {
-							alert("Alice selected value: " + this.value);
-							aliceselectedText = this.value;
-						});
 
-					// Bob dropdown alert
-					var bobselectedText = 1;
-					document
-						.getElementById("bobStrategy")
-						.addEventListener("change", function () {
-							bobselectedText = this.value;
-							alert(
-								"Bob selected value: " +
-									bobselectedText +
-									" Alice has " +
-									aliceselectedText,
-							);
-						});
-				</script>
 				<style>
 					.table_component {
 						overflow: auto;
@@ -120,20 +97,97 @@ let data2 = "test";
 							<tr>
 								<th>Alice</th>
 								<th>x = 0</th>
-								<td></td>
-								<td id="data2"></td>
+								<td id="x0y0">True</td>
+								<td id="x0y1">True</td>
 							</tr>
 							<tr>
 								<th></th>
 								<th>x = 1</th>
-								<td id="data1"></td>
-								<td id="data2"></td>
+								<td id="x1y0">True</td>
+								<td id="x1y1">False</td>
 							</tr>
 						</tbody>
 					</table>
+					<script>
+						var aliceselectedText = 0;
+						// Alice dropdown alert
+						document
+							.getElementById("aliceStrategy")
+							.addEventListener("change", function () {
+								alert("Alice selected value: " + this.value);
+								aliceselectedText = this.value;
+								checkall();
+							});
+
+						// Bob dropdown alert
+						var bobselectedText = 0;
+						document
+							.getElementById("bobStrategy")
+							.addEventListener("change", function () {
+								bobselectedText = this.value;
+								alert(
+									"Bob selected value: " +
+										bobselectedText +
+										" Alice has " +
+										aliceselectedText,
+								);
+								checkall();
+							});
+
+						function checkall() {
+							checkCHSHtable(
+								0,
+								0,
+								aliceselectedText,
+								bobselectedText,
+							);
+							checkCHSHtable(
+								0,
+								1,
+								aliceselectedText,
+								bobselectedText,
+							);
+							checkCHSHtable(
+								1,
+								0,
+								aliceselectedText,
+								bobselectedText,
+							);
+							checkCHSHtable(
+								1,
+								1,
+								aliceselectedText,
+								bobselectedText,
+							);
+						}
+						function checkCHSHtable(x, y, a, b) {
+							var identitfier = "x" + x + "y" + y;
+							if (a == 2) {
+								a = x;
+							} else if (a == 3) {
+								a = 1 - x;
+							}
+							if (b == 2) {
+								b = y;
+							} else if (b == 3) {
+								b = 1 - y;
+							}
+							if ((x && y) == (a !== b)) {
+								
+								document.getElementById(
+									identitfier,
+								).textContent = "True";
+							} else {
+								document.getElementById(
+									identitfier,
+								).textContent = "False";
+							}
+						}
+					</script>
 				</div>
 			</div>
 		</main>
+
 		<Footer />
 	</body>
 </html>

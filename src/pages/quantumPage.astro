@@ -18,8 +18,7 @@ import { Button } from "free-astro-components";
 			<p>quantum part</p>
 			<Button label="Button" />
 
-
-						<h1>CHSH Tinkerer</h1>
+			<h1>CHSH Tinkerer</h1>
 			<div>
 				<label for="aliceStrategy">Alice Strategy:</label>
 				<select id="aliceStrategy" name="aliceStrategy">
@@ -59,7 +58,23 @@ import { Button } from "free-astro-components";
 							alert("Bob selected: " + selectedText);
 						});
 				</script>
+
+				<button id="hi">click me to test!!!! </button>
+				<script>
+					document
+						.getElementById("hi")
+						.addEventListener("click", () => {
+							alert(checkCHSHtable(1, 2, 3, 4));
+						});
+
+					function checkCHSHtable(x, y, a, b) {
+						document.getElementById("hi").textContent =
+							"New text from JavaScript!";
+						return x + y + a + b;
+					}
+				</script>
+			</div>
+			<Footer />
 		</main>
-		<Footer />
 	</body>
 </html>

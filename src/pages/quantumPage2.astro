@@ -15,18 +15,31 @@ import { Select } from "free-astro-components";
 		<Header />
 		<main>
 			<h1>CHSH Tinkerer</h1>
+
+
+			
 			<p>quantum part 2</p>
 			<div>
 				<button class="alert">Click me!</button>
-
+				<h1 id = "x0y0"> hi</h1>
 				<script>
+					function checkCHSHtable(x,y,a,b){
+							var identitfier = "x"+x+"y"+y;
+							if( (x&&y) == (a^b)){
+								
+								document.getElementById(identitfier).textContent = "New text from JavaScript!";
+							}
+							else{
+								alert("false");
+							}
+						}
 					// Find all buttons with the `alert` class on the page.
 					const buttons = document.querySelectorAll("button.alert");
 
 					// Handle clicks on each button.
 					buttons.forEach((button) => {
 						button.addEventListener("click", () => {
-							alert("meowth!");
+							checkCHSHtable(0,0,0,0)
 						});
 					});
 				</script>
