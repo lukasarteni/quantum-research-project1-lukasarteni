@@ -114,7 +114,7 @@ let data2 = "test";
 						document
 							.getElementById("aliceStrategy")
 							.addEventListener("change", function () {
-								alert("Alice selected value: " + this.value);
+								//alert("Alice selected value: " + this.value);
 								aliceselectedText = this.value;
 								checkall();
 							});
@@ -125,12 +125,7 @@ let data2 = "test";
 							.getElementById("bobStrategy")
 							.addEventListener("change", function () {
 								bobselectedText = this.value;
-								alert(
-									"Bob selected value: " +
-										bobselectedText +
-										" Alice has " +
-										aliceselectedText,
-								);
+								//alert("Bob selected value: " +bobselectedText +" Alice has " +aliceselectedText,);
 								checkall();
 							});
 
