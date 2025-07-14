@@ -68,7 +68,30 @@ import { Select } from "free-astro-components";
 					<option value="orange">Orange</option>
 				</Select>
 			</div>
-			
+
+			<div>
+				<Select
+					label="Alice Strategy"
+					options={[
+						{ value: "1", label: "a = 0" },
+						{ value: "2", label: "a = 1" },
+						{ value: "3", label: "a = x" },
+						{ value: "4", label: "a = !x" },
+					]}
+					placeholder="Choose an option"
+				/>
+
+				<Select
+					label="Bob Strategy"
+					options={[
+						{ value: "1", label: "b = 0" },
+						{ value: "2", label: "b = 1" },
+						{ value: "3", label: "b = x" },
+						{ value: "4", label: "b = !y" },
+					]}
+					placeholder="Choose an option"
+				/>
+			</div>
 		</main>
 		<Footer />
 	</body>

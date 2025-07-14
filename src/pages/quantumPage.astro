@@ -17,6 +17,48 @@ import { Button } from "free-astro-components";
 			<h1>CHSH Tinkerer</h1>
 			<p>quantum part</p>
 			<Button label="Button" />
+
+
+						<h1>CHSH Tinkerer</h1>
+			<div>
+				<label for="aliceStrategy">Alice Strategy:</label>
+				<select id="aliceStrategy" name="aliceStrategy">
+					<option value="" disabled selected>Choose an option</option>
+					<option value="1">a = 0</option>
+					<option value="2">a = 1</option>
+					<option value="3">a = x</option>
+					<option value="4">a = !x</option>
+				</select>
+
+				<br /><br />
+
+				<label for="bobStrategy">Bob Strategy:</label>
+				<select id="bobStrategy" name="bobStrategy">
+					<option value="" disabled selected>Choose an option</option>
+					<option value="1">b = 0</option>
+					<option value="2">b = 1</option>
+					<option value="3">b = x</option>
+					<option value="4">b = !y</option>
+				</select>
+				<script>
+					// Alice dropdown alert
+					document
+						.getElementById("aliceStrategy")
+						.addEventListener("change", function () {
+							const selectedText =
+								this.options[this.selectedIndex].text;
+							alert("Alice selected: " + selectedText);
+						});
+
+					// Bob dropdown alert
+					document
+						.getElementById("bobStrategy")
+						.addEventListener("change", function () {
+							const selectedText =
+								this.options[this.selectedIndex].text;
+							alert("Bob selected: " + selectedText);
+						});
+				</script>
 		</main>
 		<Footer />
 	</body>
