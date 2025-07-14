@@ -7,8 +7,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Image } from "astro:assets";
 import chshimage from "../../src/content/blog/Chsh-illustration.png";
 
-let data1 = "test";
-let data2 = "test";
 ---
 
 <html lang="en">
@@ -108,55 +106,66 @@ let data2 = "test";
 							</tr>
 						</tbody>
 					</table>
+					<span>Probablitilty of Winning : </span><span id="probWinText">75</span><span>%</span>
 					<script>
-						var aliceselectedText = 0;
+						var aliceselectedText = Number(0);
 						// Alice dropdown alert
 						document
 							.getElementById("aliceStrategy")
 							.addEventListener("change", function () {
-								//alert("Alice selected value: " + this.value);
-								aliceselectedText = this.value;
+								
+								aliceselectedText = Number(this.value);
+								//alert("Alice selected value: " + aliceselectedText + "Bob selected value: " +bobselectedText );
+								
 								checkall();
 							});
 
 						// Bob dropdown alert
-						var bobselectedText = 0;
+						var bobselectedText = Number(0);
 						document
 							.getElementById("bobStrategy")
 							.addEventListener("change", function () {
-								bobselectedText = this.value;
+								bobselectedText = Number(this.value);
 								//alert("Bob selected value: " +bobselectedText +" Alice has " +aliceselectedText,);
 								checkall();
 							});
 
 						function checkall() {
-							checkCHSHtable(
+							alert(aliceselectedText + " " + bobselectedText + " ");
+							alert( (0 && 0) == (aliceselectedText !== bobselectedText) );
+							let sum =0;
+							sum+= checkCHSHtable(
 								0,
 								0,
 								aliceselectedText,
 								bobselectedText,
 							);
-							checkCHSHtable(
+							sum+=checkCHSHtable(
 								0,
 								1,
 								aliceselectedText,
 								bobselectedText,
 							);
-							checkCHSHtable(
+							sum+=checkCHSHtable(
 								1,
 								0,
 								aliceselectedText,
 								bobselectedText,
 							);
-							checkCHSHtable(
+							sum+=checkCHSHtable(
 								1,
 								1,
 								aliceselectedText,
 								bobselectedText,
 							);
+							//alert(sum /4);
+							document.getElementById(
+									"probWinText"
+								).textContent = sum/4 *100;
 						}
 						function checkCHSHtable(x, y, a, b) {
 							var identitfier = "x" + x + "y" + y;
+							
 							if (a == 2) {
 								a = x;
 							} else if (a == 3) {
@@ -172,10 +181,12 @@ let data2 = "test";
 								document.getElementById(
 									identitfier,
 								).textContent = "True";
+								return 1;
 							} else {
 								document.getElementById(
 									identitfier,
 								).textContent = "False";
+								return 0;
 							}
 						}
 					</script>
