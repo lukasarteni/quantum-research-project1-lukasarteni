@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Select } from "free-astro-components";
+import { Select, Button } from "free-astro-components";
 ---
 
 <!doctype html>
@@ -16,30 +16,27 @@ import { Select } from "free-astro-components";
 		<main>
 			<h1>CHSH Tinkerer</h1>
 
-
-			
 			<p>quantum part 2</p>
 			<div>
 				<button class="alert">Click me!</button>
-				<h1 id = "x0y0"> hi</h1>
+				<h1 id="x0y0">hi &#10092 &#10092 &#10092 &#10093 &#10093 &#10093</h1>
 				<script>
-					function checkCHSHtable(x,y,a,b){
-							var identitfier = "x"+x+"y"+y;
-							if( (x&&y) == (a^b)){
-								
-								document.getElementById(identitfier).textContent = "New text from JavaScript!";
-							}
-							else{
-								alert("false");
-							}
+					function checkCHSHtable(x, y, a, b) {
+						var identitfier = "x" + x + "y" + y;
+						if ((x && y) == (a ^ b)) {
+							document.getElementById(identitfier).textContent =
+								"New text from JavaScript!";
+						} else {
+							alert("false");
 						}
+					}
 					// Find all buttons with the `alert` class on the page.
 					const buttons = document.querySelectorAll("button.alert");
 
 					// Handle clicks on each button.
 					buttons.forEach((button) => {
 						button.addEventListener("click", () => {
-							checkCHSHtable(0,0,0,0)
+							checkCHSHtable(0, 0, 0, 0);
 						});
 					});
 				</script>
@@ -104,6 +101,42 @@ import { Select } from "free-astro-components";
 					]}
 					placeholder="Choose an option"
 				/>
+			</div>
+			<div>
+				<Button label="Button" />
+
+				<label for="bobStrategy">Bob Strategy:</label>
+				<select id="bobStrategy" name="bobStrategy">
+					<option value="" disabled selected>Choose an option</option>
+					<option value="1">b = 0</option>
+					<option value="2">b = 1</option>
+					<option value="3">b = x</option>
+					<option value="4">b = !y</option>
+				</select>
+				<script>
+					// Bob dropdown alert
+					document
+						.getElementById("bobStrategy")
+						.addEventListener("change", function () {
+							const selectedText =
+								this.options[this.selectedIndex].text;
+							alert("Bob selected: " + selectedText);
+						});
+				</script>
+				<button id="hi">click me to test!!!! </button>
+				<script>
+					document
+						.getElementById("hi")
+						.addEventListener("click", () => {
+							alert(checkCHSHtable(1, 2, 3, 4));
+						});
+
+					function checkCHSHtable(x, y, a, b) {
+						document.getElementById("hi").textContent =
+							"New text from JavaScript!";
+						return x + y + a + b;
+					}
+				</script>
 			</div>
 		</main>
 		<Footer />

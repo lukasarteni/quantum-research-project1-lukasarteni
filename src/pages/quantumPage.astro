@@ -4,6 +4,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Button } from "free-astro-components";
+import { Image } from "astro:assets";
+import chshimage from "../../src/content/blog/Chsh-illustration.png";
+import chshimage2 from "../../src/content/blog/chshBases.png";
 ---
 
 <!doctype html>
@@ -15,66 +18,114 @@ import { Button } from "free-astro-components";
 		<Header />
 		<main>
 			<h1>CHSH Tinkerer</h1>
-			<p>quantum part</p>
-			<Button label="Button" />
-
-			<h1>CHSH Tinkerer</h1>
+			<Image src={chshimage} alt="chsh game" width="500" height="500" />
+			<p>
+				Use an Quantum Entangled pair in order to increase chances of
+				wining!<br />
+				For this example, We will use |φ&#10093 = |00&#10093 + |11&#10093
+				<br />
+			</p>
+			<Image src={chshimage2} alt="chsh game" width="500" height="500" />
+			<p>
+				We will make measurements on this qubit based on what Alex and
+				Bob recieve from the Referee.
+			</p>
 			<div>
-				<label for="aliceStrategy">Alice Strategy:</label>
-				<select id="aliceStrategy" name="aliceStrategy">
-					<option value="" disabled selected>Choose an option</option>
-					<option value="1">a = 0</option>
-					<option value="2">a = 1</option>
-					<option value="3">a = x</option>
-					<option value="4">a = !x</option>
-				</select>
-
-				<br /><br />
-
-				<label for="bobStrategy">Bob Strategy:</label>
-				<select id="bobStrategy" name="bobStrategy">
-					<option value="" disabled selected>Choose an option</option>
-					<option value="1">b = 0</option>
-					<option value="2">b = 1</option>
-					<option value="3">b = x</option>
-					<option value="4">b = !y</option>
-				</select>
-				<script>
-					// Alice dropdown alert
-					document
-						.getElementById("aliceStrategy")
-						.addEventListener("change", function () {
-							const selectedText =
-								this.options[this.selectedIndex].text;
-							alert("Alice selected: " + selectedText);
-						});
-
-					// Bob dropdown alert
-					document
-						.getElementById("bobStrategy")
-						.addEventListener("change", function () {
-							const selectedText =
-								this.options[this.selectedIndex].text;
-							alert("Bob selected: " + selectedText);
-						});
-				</script>
-
-				<button id="hi">click me to test!!!! </button>
-				<script>
-					document
-						.getElementById("hi")
-						.addEventListener("click", () => {
-							alert(checkCHSHtable(1, 2, 3, 4));
-						});
-
-					function checkCHSHtable(x, y, a, b) {
-						document.getElementById("hi").textContent =
-							"New text from JavaScript!";
-						return x + y + a + b;
+				<style>
+					.table_component {
+						overflow: auto;
+						width: 100%;
 					}
-				</script>
+
+					.table_component table {
+						border: 1px solid #dededf;
+						height: 100%;
+						width: 100%;
+						table-layout: fixed;
+						border-collapse: collapse;
+						border-spacing: 1px;
+						text-align: left;
+					}
+
+					.table_component caption {
+						caption-side: top;
+						text-align: left;
+					}
+
+					.table_component th {
+						border: 1px solid #dededf;
+						background-color: #e4e9ec;
+						color: #000000;
+						padding: 5px;
+					}
+
+					.table_component td {
+						border: 1px solid #dededf;
+						background-color: #ffffff;
+						color: #000000;
+						padding: 5px;
+					}
+				</style>
+				<div class="table_component" role="region" tabindex="0">
+					<table>
+						<caption>Chart of Rotational Difference</caption>
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>Bob</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>y = 0</th>
+								<th>y = 1</th>
+							</tr>
+							<tr>
+								<th>Alice</th>
+								<th>x = 0</th>
+								<td>+𝝿 / 8 </td>
+								<td>+𝝿 / 8</td>
+							</tr>
+							<tr>
+								<th></th>
+								<th>x = 1</th>
+								<td>+𝝿 / 8</td>
+								<td ">+3𝝿 / 8</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+						Step 1) Alice recieves x, Bob gets y
+					</p>
+					<label for="aliceStrategy">Options:</label>
+					<select id="aliceStrategy" name="aliceStrategy">
+						
+						<option value="1">a = 0, b = 0</option>
+						<option value="2">a = 1, b = 0</option>
+						<option value="3">a = 0, b = 1</option>
+						<option value="4">a = 1, b = 1</option>
+					</select>
+					
+					<p> We will assume that Alice will always measure |0&#10093 in this example case, despite it being random</p>								
+					<script>
+						// Alice dropdown alert
+						document
+							.getElementById("aliceStrategy")
+							.addEventListener("change", function () {
+								const selectedText =
+									this.options[this.selectedIndex].text;
+								alert("Alice selected: " + selectedText);
+							});
+					</script>
+				</div>
+				<br />
+				<Footer />
 			</div>
-			<Footer />
+			<br />
 		</main>
 	</body>
 </html>
