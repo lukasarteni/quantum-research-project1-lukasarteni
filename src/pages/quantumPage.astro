@@ -94,32 +94,76 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 								<th></th>
 								<th>x = 1</th>
 								<td>+𝝿 / 8</td>
-								<td ">+3𝝿 / 8</td>
+								<td>+3𝝿 / 8</td>
 							</tr>
 						</tbody>
 					</table>
-					<p>
-						Step 1) Alice recieves x, Bob gets y
-					</p>
+					<p>Step 1) Alice recieves x, Bob gets y</p>
 					<label for="aliceStrategy">Options:</label>
 					<select id="aliceStrategy" name="aliceStrategy">
-						
 						<option value="1">a = 0, b = 0</option>
-						<option value="2">a = 1, b = 0</option>
-						<option value="3">a = 0, b = 1</option>
-						<option value="4">a = 1, b = 1</option>
+						<option value="2">a = 0, b = 1</option>
+						<option value="3" disabled>a = 1, b = 0</option>
+						<option value="4" disabled>a = 1, b = 1</option>
 					</select>
-					
-					<p> We will assume that Alice will always measure |0&#10093 in this example case, despite it being random</p>								
+
+					<p>
+						We will assume that Alice will always measure what we
+						choose in this example case, despite it being random
+					</p>
+					<label for="aliceStrategy"
+						>Alice measures Qubit and gets :
+					</label>
+					<select id="aliceStrategy" name="aliceStrategy">
+						<option value="1">|0&#10093</option>
+						<option value="2">|1&#10093</option>
+						<option value="3" disabled>|+&#10093</option>
+						<option value="4" disabled>|-&#10093</option>
+					</select>
+					<p>
+						There is an 85.36% that Alice and Bob get the correct
+						output to the CHSH game.
+					</p>
+					<p>press the button to see if you'd succeed</p><button
+						id="randombutton">Test!</button
+					>
+
 					<script>
 						// Alice dropdown alert
 						document
 							.getElementById("aliceStrategy")
 							.addEventListener("change", function () {
 								const selectedText =
-									this.options[this.selectedIndex].text;
+									this.options[this.selectedIndex].value;
 								alert("Alice selected: " + selectedText);
 							});
+						document
+							.getElementById("randombutton")
+							.addEventListener("click", () => {
+								
+								if (Math.random() < 0.8536){
+									 alert("Success");
+								}
+								else{
+									alert("Fail");
+								}
+								
+							});
+						function hide(id) {
+							let thingWeAreHiding =
+								document.getElementById("id");
+							thingWeAreHiding.style.visibility = "hidden";
+						}
+
+						function show(id) {
+							let thingWeAreShowing =
+								document.getElementById("id");
+							thingWeAreShowing.style.visibility = "visible";
+						}
+
+						
+						
+						
 					</script>
 				</div>
 				<br />
