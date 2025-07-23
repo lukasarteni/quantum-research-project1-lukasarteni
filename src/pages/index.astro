@@ -6,7 +6,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 //import { Select } from "free-astro-components";
 import { Image } from "astro:assets";
 import chshimage from "../../src/content/blog/Chsh-illustration.png";
-
 ---
 
 <html lang="en">
@@ -19,26 +18,31 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 		<main>
 			<h1>CHSH Tinkerer</h1>
 			<Image src={chshimage} alt="chsh game" width="500" height="500" />
-			<p> The CHSH game is a quantum game that highlights that the benefits of quantum entaglement can be used to perform better than computational (ordinary) strategies.
-				<br>
-				<br> 
-				The game starts off with a Referee and two players, Alice and Bob. 
-				The Referee gives Alice the value x and Bob the value y. 
-				<br>
-				X and Y are either 0 or 1. 
-				<br>
-				Alice and Bob must give the Referee values a and b. 
-				Once again, these are 0 or 1. 
-				Alice and Bob want to succeed by having the equation be true. 
-				The equation means x AND y equals a XOR B.
-				<br>
-				If x and y are both 1, a must be different than b. <br> 
-				Otherwise, a and b must be the same.<br> <br> 
-				The stipulation of this scenario is that Alice and Bob can not communicate after recieving their bits. At most, they can coordinate beforehand. 
+			<p>
+				The CHSH game is a quantum game that highlights that the
+				benefits of quantum entaglement can be used to perform better
+				than computational (ordinary) strategies.
+				<br />
+				<br />
+				The game starts off with a Referee and two players, Alice and Bob.
+				The Referee gives Alice the value x and Bob the value y.
+				<br />
+				X and Y are either 0 or 1.
+				<br />
+				Alice and Bob must give the Referee values a and b. Once again, these
+				are 0 or 1. Alice and Bob want to succeed by having the equation
+				be true. The equation means x AND y equals a XOR B.
+				<br />
+				If x and y are both 1, a must be different than b. <br />
+				Otherwise, a and b must be the same.<br />
+				<br />
+				The stipulation of this scenario is that <strong>Alice and Bob can NOT communicate</strong>
+				after recieving their bits. At most, they can coordinate beforehand.
 			</p>
 			<p>
-				<br> 
-				Below are the basic strategies that can be used with the information Alice and Bob have present.
+				<br />
+				Below are the basic strategies that can be used with the information
+				Alice and Bob have present.
 			</p>
 			<div>
 				<label for="aliceStrategy">Alice Strategy:</label>
@@ -49,7 +53,7 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 					<option value="3">a = !x</option>
 				</select>
 
-				<br >
+				<br />
 
 				<label for="bobStrategy">Bob Strategy:</label>
 				<select id="bobStrategy" name="bobStrategy">
@@ -126,17 +130,24 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 							</tr>
 						</tbody>
 					</table>
-					<span>Probablitilty of Winning : </span><span id="probWinText">75</span><span>%</span>
+					<span>Probablitilty of Winning : </span><span
+						id="probWinText">75</span
+					><span>%</span>
+					<p>
+						Throughout the 16 posssible strategies, the best success rate we can get is 75%. <br>
+						You can try it yourself above!<br>
+						A common misconception is that if we randomly choose Alice and Bob's strategies, we can get a better success rate. This may work in the short term, however as we increase the amount of trials,
+						we reach the limit of 75%. Also, randomly choosing the strategy still leaves us with a winning probability of 75% in the best case. 
+					</p>
 					<script>
 						var aliceselectedText = Number(0);
 						// Alice dropdown alert
 						document
 							.getElementById("aliceStrategy")
 							.addEventListener("change", function () {
-								
 								aliceselectedText = Number(this.value);
 								//alert("Alice selected value: " + aliceselectedText + "Bob selected value: " +bobselectedText );
-								
+
 								checkall();
 							});
 
@@ -153,39 +164,38 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 						function checkall() {
 							//alert(aliceselectedText + " " + bobselectedText + " ");
 							//alert( (0 && 0) == (aliceselectedText !== bobselectedText) );
-							let sum =0;
-							sum+= checkCHSHtable(
+							let sum = 0;
+							sum += checkCHSHtable(
 								0,
 								0,
 								aliceselectedText,
 								bobselectedText,
 							);
-							sum+=checkCHSHtable(
+							sum += checkCHSHtable(
 								0,
 								1,
 								aliceselectedText,
 								bobselectedText,
 							);
-							sum+=checkCHSHtable(
+							sum += checkCHSHtable(
 								1,
 								0,
 								aliceselectedText,
 								bobselectedText,
 							);
-							sum+=checkCHSHtable(
+							sum += checkCHSHtable(
 								1,
 								1,
 								aliceselectedText,
 								bobselectedText,
 							);
 							//alert(sum /4);
-							document.getElementById(
-									"probWinText"
-								).textContent = sum/4 *100;
+							document.getElementById("probWinText").textContent =
+								(sum / 4) * 100;
 						}
 						function checkCHSHtable(x, y, a, b) {
 							var identitfier = "x" + x + "y" + y;
-							
+
 							if (a == 2) {
 								a = x;
 							} else if (a == 3) {
@@ -197,7 +207,6 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 								b = 1 - y;
 							}
 							if ((x && y) == (a !== b)) {
-								
 								document.getElementById(
 									identitfier,
 								).textContent = "True";

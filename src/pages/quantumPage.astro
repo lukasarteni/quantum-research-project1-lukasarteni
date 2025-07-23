@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Button } from "free-astro-components";
 import { Image } from "astro:assets";
-import chshimage from "../../src/content/blog/Chsh-illustration.png";
+import chshimage from "../../src/content/blog/Chsh-illustration2.png";
 import chshimage2 from "../../src/content/blog/chshBases.png";
 ---
 
@@ -20,9 +20,18 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 			<h1>CHSH Tinkerer</h1>
 			<Image src={chshimage} alt="chsh game" width="500" height="500" />
 			<p>
-				Use an Quantum Entangled pair in order to increase chances of
+				75% is the best winning probablity we can do we normal tatics. <br
+				/>
+				However, we can use Quantum Entanglment to increase our chances of
 				wining!<br />
-				For this example, We will use |φ&#10093 = |00&#10093 + |11&#10093
+				<br>
+				To give a brief overview, in quantum computing we use particles and their spin.
+				The spin of the particle can be in any direction. To find the direction we must measure it.
+				To measure we must use a measurement basis, a set of 2 unit vectors that are orthogonal (perpendicular)
+				
+				<br><br>
+				For this example, We will use |ψ&#10093 = |00&#10093 +
+				|11&#10093
 				<br />
 			</p>
 			<Image src={chshimage2} alt="chsh game" width="500" height="500" />
@@ -140,14 +149,11 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 						document
 							.getElementById("randombutton")
 							.addEventListener("click", () => {
-								
-								if (Math.random() < 0.8536){
-									 alert("Success");
-								}
-								else{
+								if (Math.random() < 0.8536) {
+									alert("Success");
+								} else {
 									alert("Fail");
 								}
-								
 							});
 						function hide(id) {
 							let thingWeAreHiding =
@@ -160,10 +166,6 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 								document.getElementById("id");
 							thingWeAreShowing.style.visibility = "visible";
 						}
-
-						
-						
-						
 					</script>
 				</div>
 				<br />
