@@ -31,7 +31,7 @@ import react from "@astrojs/react";
 				cos(&beta;)&vert;0&rangle; + sin(&beta;)&vert;1&rangle;
 			</p>
 			<div>
-				<form>
+				
 					<label>Alpha angle (degrees):</label>
 					<input type="number" class="alpha" value="0" id="hi" />
 					<br />
@@ -51,7 +51,7 @@ import react from "@astrojs/react";
 					<br />
 					<div>
 						<label>Beta angle (degrees):</label>
-						<input type="number" class="Beta" value="0" name="hi" />
+						<input type="number" class="Beta" value="45" name="hi" />
 						<br />
 						Choose angle between &vert;B<sub>0</sub>&rangle; and
 						&vert;B<sub>1</sub>&rangle; :
@@ -64,7 +64,8 @@ import react from "@astrojs/react";
 							-90°
 						</label>
 					</div>
-				</form>
+					<button name="Submit">Update With New Values</button>
+				
 			</div>
 		</main>
 		<Footer />
