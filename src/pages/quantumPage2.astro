@@ -3,9 +3,6 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Select, Button } from "free-astro-components";
-import { Image } from "astro:assets";
-import chshimage from "../../src/content/blog/Chsh-illustration2.png";
 import react from "@astrojs/react";
 ---
 
@@ -13,31 +10,62 @@ import react from "@astrojs/react";
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"
-		></script>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<p>testing</p>
-			<div id="myDiv"></div>
-			<p>testing2</p>
-			<div id="myDiv2"></div>
-			<script src="../../src/components/examplechart2.js"></script>
-			<p>test3</p>
-			<div id="root"></div>
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
+				<h1>CHSH Tinkerer</h1><br />
+			</div>
 
-			<!-- Include React, ReactDOM, and D3 from CDN -->
-			<script src="https://unpkg.com/react@18/umd/react.development.js"
-			></script>
-			<script
-				src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-			></script>
-			<script src="https://d3js.org/d3.v7.min.js"></script>
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
+				<h2>Quantum Entanglement<br />Strategy Tinkerer</h2>
+			</div>
+			<p>
+				&vert;A<sub>0</sub>&rangle; = cos(&alpha;)&vert;0&rangle; +
+				sin(&alpha;)&vert;1&rangle; and &vert;B<sub>0</sub>&rangle; =
+				cos(&beta;)&vert;0&rangle; + sin(&beta;)&vert;1&rangle;
+			</p>
+			<div>
+				<form>
+					<label>Alpha angle (degrees):</label>
+					<input type="number" class="alpha" value="0" id="hi" />
+					<br />
+					Choose angle between &vert;A<sub>0</sub>&rangle; and &vert;A<sub
+						>1</sub
+					>&rangle; :
 
-			<!-- Load custom JS files -->
-			<script type="module" src="./App.js"></script>
+					<label>
+						<input type="radio" name="alphadiffangle" value="+90" checked />
+						+90°
+					</label>
+					<label>
+						<input type="radio" name="alphadiffangle" value="-90" />
+						-90°
+					</label>
+					<br />
+					<br />
+					<div>
+						<label>Beta angle (degrees):</label>
+						<input type="number" class="Beta" value="0" name="hi" />
+						<br />
+						Choose angle between &vert;B<sub>0</sub>&rangle; and
+						&vert;B<sub>1</sub>&rangle; :
+
+						<input type="radio" name="betadiffangle" value="+90" checked />
+						+90°
+
+						<label>
+							<input type="radio" name="betadiffangle" value="-90" />
+							-90°
+						</label>
+					</div>
+				</form>
+			</div>
 		</main>
 		<Footer />
 	</body>
