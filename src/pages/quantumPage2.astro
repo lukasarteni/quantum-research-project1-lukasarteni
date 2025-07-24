@@ -6,37 +6,38 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Select, Button } from "free-astro-components";
 import { Image } from "astro:assets";
 import chshimage from "../../src/content/blog/Chsh-illustration2.png";
-import chshimage2 from "../../src/content/blog/chshBases.png";
+import react from "@astrojs/react";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"
+		></script>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<div
-				style="display:flex; align-items:center; justify-content:center;"
-			>
-				<h1>CHSH Tinkerer</h1><br />
-			</div>
-			<div
-				style="display:flex; align-items:center; justify-content:center;"
-			>
-				<h2>Quantum Entanglement<br>Strategy Tinkerer</h2>
-				
-			</div>
+			<p>testing</p>
+			<div id="myDiv"></div>
+			<p>testing2</p>
+			<div id="myDiv2"></div>
+			<script src="../../src/components/examplechart2.js"></script>
+			<p>test3</p>
+			<div id="root"></div>
 
-			<div style="display:flex; align-items:center; justify-content:center;">
-				<Image
-					src={chshimage}
-					alt="chsh game"
-					width="500"
-					height="500"
-				/>
-			</div>
+			<!-- Include React, ReactDOM, and D3 from CDN -->
+			<script src="https://unpkg.com/react@18/umd/react.development.js"
+			></script>
+			<script
+				src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+			></script>
+			<script src="https://d3js.org/d3.v7.min.js"></script>
+
+			<!-- Load custom JS files -->
+			<script type="module" src="./App.js"></script>
 		</main>
 		<Footer />
 	</body>
