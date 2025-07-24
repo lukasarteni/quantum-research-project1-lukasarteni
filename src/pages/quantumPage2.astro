@@ -4,6 +4,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Select, Button } from "free-astro-components";
+import { Image } from "astro:assets";
+import chshimage from "../../src/content/blog/Chsh-illustration2.png";
+import chshimage2 from "../../src/content/blog/chshBases.png";
 ---
 
 <!doctype html>
@@ -14,129 +17,25 @@ import { Select, Button } from "free-astro-components";
 	<body>
 		<Header />
 		<main>
-			<h1>CHSH Tinkerer</h1>
-
-			<p>quantum part 2</p>
-			<div>
-				<button class="alert">Click me!</button>
-				<h1 id="x0y0">hi &#10092 &#10092 &#10092 &#10093 &#10093 &#10093</h1>
-				<script>
-					function checkCHSHtable(x, y, a, b) {
-						var identitfier = "x" + x + "y" + y;
-						if ((x && y) == (a ^ b)) {
-							document.getElementById(identitfier).textContent =
-								"New text from JavaScript!";
-						} else {
-							alert("false");
-						}
-					}
-					// Find all buttons with the `alert` class on the page.
-					const buttons = document.querySelectorAll("button.alert");
-
-					// Handle clicks on each button.
-					buttons.forEach((button) => {
-						button.addEventListener("click", () => {
-							checkCHSHtable(0, 0, 0, 0);
-						});
-					});
-				</script>
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
+				<h1>CHSH Tinkerer</h1><br />
 			</div>
-			<Select
-				class="selectclass1"
-				label="Select an option"
-				options={[
-					{ value: "1", label: "Fortnite 1" },
-					{ value: "2", label: "Option 2" },
-					{ value: "3", label: "Option 3" },
-				]}
-			/>
-			<script>
-				// Find all selects with the `selectclass1` class on the page.
-				//const selects2 = ;
-
-				// Handle clicks on each button.
-				document
-					.querySelectorAll("Select.selectclass1")
-					.forEach((Select) => {
-						Select.addEventListener("click", () => {
-							alert("FORTNITE!");
-						});
-					});
-			</script>
-
-			<div>
-				<select id="fruitSelect">
-					<option value="apple">Apple</option>
-					<option value="banana">Banana</option>
-					<option value="orange">Orange</option>
-				</select>
-			</div>
-			<div>
-				<Select id="fruitSelect">
-					<option value="apple" , label="Apple"></option>
-					<option value="banana">Banana</option>
-					<option value="orange">Orange</option>
-				</Select>
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
+				<h2>Quantum Entanglement<br>Strategy Tinkerer</h2>
+				
 			</div>
 
-			<div>
-				<Select
-					label="Alice Strategy"
-					options={[
-						{ value: "1", label: "a = 0" },
-						{ value: "2", label: "a = 1" },
-						{ value: "3", label: "a = x" },
-						{ value: "4", label: "a = !x" },
-					]}
-					placeholder="Choose an option"
+			<div style="display:flex; align-items:center; justify-content:center;">
+				<Image
+					src={chshimage}
+					alt="chsh game"
+					width="500"
+					height="500"
 				/>
-
-				<Select
-					label="Bob Strategy"
-					options={[
-						{ value: "1", label: "b = 0" },
-						{ value: "2", label: "b = 1" },
-						{ value: "3", label: "b = x" },
-						{ value: "4", label: "b = !y" },
-					]}
-					placeholder="Choose an option"
-				/>
-			</div>
-			<div>
-				<Button label="Button" />
-
-				<label for="bobStrategy">Bob Strategy:</label>
-				<select id="bobStrategy" name="bobStrategy">
-					<option value="" disabled selected>Choose an option</option>
-					<option value="1">b = 0</option>
-					<option value="2">b = 1</option>
-					<option value="3">b = x</option>
-					<option value="4">b = !y</option>
-				</select>
-				<script>
-					// Bob dropdown alert
-					document
-						.getElementById("bobStrategy")
-						.addEventListener("change", function () {
-							const selectedText =
-								this.options[this.selectedIndex].text;
-							alert("Bob selected: " + selectedText);
-						});
-				</script>
-				<button id="hi">click me to test!!!! </button>
-				<script>
-					document
-						.getElementById("hi")
-						.addEventListener("click", () => {
-							alert(checkCHSHtable(1, 2, 3, 4));
-						});
-
-					function checkCHSHtable(x, y, a, b) {
-						document.getElementById("hi").textContent =
-							"New text from JavaScript!";
-						return x + y + a + b;
-					}
-				</script>
 			</div>
 		</main>
 		<Footer />

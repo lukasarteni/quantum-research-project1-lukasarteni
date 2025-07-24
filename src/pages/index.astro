@@ -16,10 +16,27 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 		<Header />
 
 		<main>
-			<h1>CHSH Tinkerer</h1>
-			<Image src={chshimage} alt="chsh game" width="500" height="500" />
-			<p>
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
+				<h1>CHSH Tinkerer</h1><br /><br>
 				
+			</div>
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
+				<h3>CHSH Game Defintion <br> and Basic Strategies</h2>
+				
+			</div>
+			<div style="display:flex; align-items:center; justify-content:center;">
+				<Image
+					src={chshimage}
+					alt="chsh game"
+					width="500"
+					height="500"
+				/>
+			</div>
+			<p>
 				The CHSH game is a quantum game that highlights that the
 				benefits of quantum entaglement can be used to perform better
 				than computational (ordinary) strategies.
@@ -37,7 +54,9 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 				If x and y are both 1, a must be different than b. <br />
 				Otherwise, a and b must be the same.<br />
 				<br />
-				The stipulation of this scenario is that <strong>Alice and Bob can NOT communicate</strong>
+				The stipulation of this scenario is that <strong
+					>Alice and Bob can NOT communicate</strong
+				>
 				after recieving their bits. At most, they can coordinate beforehand.
 			</p>
 			<p>
@@ -135,10 +154,15 @@ import chshimage from "../../src/content/blog/Chsh-illustration.png";
 						id="probWinText">75</span
 					><span>%</span>
 					<p>
-						Throughout the 16 posssible strategies, the best success rate we can get is 75%. <br>
-						You can try it yourself above!<br>
-						A common misconception is that if we randomly choose Alice and Bob's strategies, we can get a better success rate. This may work in the short term, however as we increase the amount of trials,
-						we reach the limit of 75%. Also, randomly choosing the strategy still leaves us with a winning probability of 75% in the best case. 
+						Throughout the 16 posssible strategies, the best success
+						rate we can get is 75%. <br />
+						You can try it yourself above!<br />
+						A common misconception is that if we randomly choose Alice
+						and Bob's strategies, we can get a better success rate. This
+						may work in the short term, however as we increase the amount
+						of trials, we reach the limit of 75%. Also, randomly choosing
+						the strategy still leaves us with a winning probability of
+						75% in the best case.
 					</p>
 					<script>
 						var aliceselectedText = Number(0);
