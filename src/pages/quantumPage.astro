@@ -25,11 +25,12 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 			<div
 				style="display:flex; align-items:center; justify-content:center;"
 			>
-				<h3>Quantum Basics and<br>Entangled Strategies</h2>
-				
+				<h3>Quantum Basics and<br />Entangled Strategies</h3>
 			</div>
 
-			<div style="display:flex; align-items:center; justify-content:center;">
+			<div
+				style="display:flex; align-items:center; justify-content:center;"
+			>
 				<Image
 					src={chshimage}
 					alt="chsh game"
@@ -42,23 +43,26 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 				/>
 				However, we can use Quantum Entanglment to increase our chances of
 				wining!<br />
-				<br>
-				&emsp;To give a brief overview, in quantum computing we use particles and their spin.
-				The spin of the particle can be in any direction. To find the direction we must measure it.
-				To measure we must use a measurement basis, a set of 2 unit vectors that are orthogonal (perpendicular).
-				<br>
-				&emsp;When measuring a particle, its spin (state) will always collapse into one of the unit vectors (bases).
-				It will most likely collapse into a base that is close to its orginal state. 
-				If the orignal state and the base are the same, it will collapse into it 100% of the time.
-				<br> Entanglement is when two particles are prepared in a certain way where their spins are always correlated. 
-				For example, they can be prepared to always have the same state. If one particle's state is change, the other instantelousy changes too.
-				They will demonstrate this behavior even when seperated incredibliy far apart. <br>
-				We will use this behavior to increase 
-				our winning probablity!
-				
-				<br><br>
-				For this example, We will use |ψ&#10093 = |00&#10093 +
-				|11&#10093
+				<br />
+				&emsp;To give a brief overview, in quantum computing we use particles
+				and their spin. The spin of the particle can be in any direction.
+				To find the direction we must measure it. To measure we must use
+				a measurement basis, a set of 2 unit vectors that are orthogonal
+				(perpendicular).
+				<br />
+				&emsp;When measuring a particle, its spin (state) will always collapse
+				into one of the unit vectors (bases). It will most likely collapse
+				into a base that is close to its orginal state. If the orignal state
+				and the base are the same, it will collapse into it 100% of the time.
+				<br /> Entanglement is when two particles are prepared in a certain
+				way where their spins are always correlated. For example, they can
+				be prepared to always have the same state. If one particle's state
+				is change, the other instantelousy changes too. They will demonstrate
+				this behavior even when seperated incredibliy far apart. <br />
+				We will use this behavior to increase our winning probablity!
+
+				<br /><br />
+				For this example, We will use |ψ&#10093 = |00&#10093 + |11&#10093
 				<br />
 			</p>
 			<Image src={chshimage2} alt="chsh game" width="500" height="500" />
@@ -156,13 +160,22 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 						<option value="3" disabled>|+&#10093</option>
 						<option value="4" disabled>|-&#10093</option>
 					</select>
-					<p>
-						There is an 85.36% that Alice and Bob get the correct
-						output to the CHSH game.
-					</p>
-					<p>press the button to see if you'd succeed</p><button
+					
+					<p>Press the button to see if you'd succeed!</p><button
 						id="randombutton">Test!</button
 					>
+
+					<p>
+						&#124;B<sub>0</sub>&gt; = cos(&#960;/8)&#124;0&gt;<br />
+						&#124;B<sub>1</sub>&gt; = sin(&#960;/8)&#124;0&gt;<br />
+						<br />
+						Probability Bob collapses to &#124;B<sub>0</sub>&gt; =
+						&#124;cos(&#960;/8)&#124;<sup>2</sup> &lt;0 &#124; 0&gt;
+						= 0.8536<br />
+						Probability Bob collapses to &#124;B<sub>1</sub>&gt; =
+						&#124;sin(&#960;/8)&#124;<sup>2</sup> &lt;1 &#124; 1&gt;
+						= 0.1464
+					</p>
 
 					<script>
 						// Alice dropdown alert
