@@ -18,33 +18,22 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
     <Header />
     <main>
       <h1>CHSH Tinkerer</h1><br />
-
-      <p>hi</p>
-
-      <svg id="dataviz_area" height="200" width="450"></svg>
-
+      <div id="myDiv2"></div>
       <script src="http://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+
+      <script src="../../src/components/examplechart2.js"></script>
+      <svg id="test1"></svg>
       <script>
-        var svg = d3.select("#dataviz_area");
+        const svg = d3.select("#test1");
         svg
           .append("circle")
-          .attr("cx", 40)
-          .attr("cy", 2)
+          .attr("cx", 10)
+          .attr("cy", 20)
           .attr("r", 40)
-          .style("fill", "cyan");
-        svg
-          .append("circle")
-          .attr("cx", 140)
-          .attr("cy", 70)
-          .attr("r", 40)
-          .style("fill", "red");
-        svg
-          .append("circle")
-          .attr("cx", 300)
-          .attr("cy", 100)
-          .attr("r", 40)
-          .style("fill", "green");
+          .style("fill", "blue");
       </script>
+
+      
       <Footer />
     </main>
     <br />

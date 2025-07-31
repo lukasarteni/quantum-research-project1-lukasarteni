@@ -19,6 +19,23 @@ var data = [
       },
       subplot: "polar"
     },
+    {
+      type: "scatterpolar",
+      mode: "lines+markers",
+      r: [0,5],
+      theta: [90,90],
+      line: {
+        color: "#ff0000ff",
+        width: 5
+      },
+      
+      marker: {
+        color: "#001764ff",
+        symbol: "square",
+        size: 8
+      },
+      subplot: "polar"
+    }
     
   ]
 
