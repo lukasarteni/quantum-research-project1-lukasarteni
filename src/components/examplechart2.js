@@ -1,12 +1,13 @@
-import React from 'react';
 import Plot from 'react-plotly.js';
 
 var data = [
     {
       type: "scatterpolar",
+      
       mode: "lines+markers",
-      r: [0,5],
-      theta: [0,0],
+      r: [0,1,0,1],
+      theta: [0,0,90,90],
+      
       line: {
         color: "#ff0000ff",
         width: 5
@@ -22,10 +23,10 @@ var data = [
     {
       type: "scatterpolar",
       mode: "lines+markers",
-      r: [0,5],
-      theta: [90,90],
+      r: [0,1,0,1],
+      theta: [0,45,0,-45],
       line: {
-        color: "#ff0000ff",
+        color: "#00e1ffff",
         width: 5
       },
       
@@ -47,6 +48,7 @@ var layout = {
         y: [0,1]
       },
       radialaxis: {
+        nticks:2,
         tickfont: {
           size: 12
         }
@@ -62,6 +64,10 @@ var layout = {
     
     
   }
+
+function changeData(){
+  return;
+}
 
 Plotly.newPlot('myDiv2', data, layout)
 

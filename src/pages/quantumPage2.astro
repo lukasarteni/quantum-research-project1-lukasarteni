@@ -93,69 +93,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				<button id="moreButton"> MORE!</button>
 				<br />
 
-				<svg id="dataviz_area" height="300" width="450"></svg>
-
-				<script src="http://d3js.org/d3.v7.min.js" charset="utf-8"
-				></script>
-
+				
 				<script>
-					const svg = d3.select("#dataviz_area");
-					const width = +svg.attr("width");
-					const height = +svg.attr("height");
-					const margin = 40;
-					const centerX = width / 2;
-					const centerY = height / 2;
-					const scale = 100; // pixels per unit
-
-					// Draw arrow marker
-					svg.append("defs")
-						.append("marker")
-						.attr("id", "arrow")
-						.attr("viewBox", "0 -5 10 10")
-						.attr("refX", 10)
-						.attr("refY", 0)
-						.attr("markerWidth", 6)
-						.attr("markerHeight", 6)
-						.attr("orient", "auto")
-						.append("path")
-						.attr("d", "M0,-5L10,0L0,5")
-						.attr("fill", "black");
-
-					// Draw axes
-					svg.append("line")
-						.attr("x1", centerX)
-						.attr("y1", margin)
-						.attr("x2", centerX)
-						.attr("y2", height - margin)
-						.attr("stroke", "black");
-
-					svg.append("line")
-						.attr("x1", margin)
-						.attr("y1", centerY)
-						.attr("x2", width - margin)
-						.attr("y2", centerY)
-						.attr("stroke", "black");
-
-					// Function to draw vector
-					function drawVector(x, y, color, label) {
-						svg.append("line")
-							.attr("x1", centerX)
-							.attr("y1", centerY)
-							.attr("x2", centerX + x * scale)
-							.attr("y2", centerY - y * scale)
-							.attr("stroke", color)
-							.attr("class", "vector");
-
-						svg.append("text")
-							.attr("x", centerX + x * scale + 5)
-							.attr("y", centerY - y * scale + 5)
-							.text(label)
-							.style("font-size", "14px");
-					}
-
-					// Plot |0⟩ and |1⟩
-					drawVector(1, 0, "blue", "|0⟩");
-					drawVector(0, 1, "red", "|1⟩");
+					
 
 					document
 						.getElementById("buttonUpdater")

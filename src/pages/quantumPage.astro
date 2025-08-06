@@ -13,6 +13,12 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body>
 		<Header />
@@ -62,14 +68,17 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 				We will use this behavior to increase our winning probablity!
 
 				<br /><br />
-				For this example, We will use |ψ&#10093 = |00&#10093 + |11&#10093
+				For this example, We will use |&phi;&rang; = (1 / &radic;2) (|0&rang;<sub>A</sub> &otimes; |0&rang;<sub>B</sub> + |1&rang;<sub>A</sub> &otimes; |1&rang;<sub>B</sub>)
+				<br>
+				Simply if either Alice of Bob measure |0&rang; or |1&rang;, the other will also have the same qubit when measured.
 				<br />
 			</p>
-			<Image src={chshimage2} alt="chsh game" width="500" height="500" />
 			<p>
 				We will make measurements on this qubit based on what Alex and
 				Bob recieve from the Referee.
 			</p>
+			<Image src={chshimage2} alt="chsh game" width="500" height="500" />
+			
 			<div>
 				<style>
 					.table_component {
@@ -141,10 +150,10 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 					<p>Step 1) Alice recieves x, Bob gets y</p>
 					<label for="aliceStrategy">Options:</label>
 					<select id="aliceStrategy" name="aliceStrategy">
-						<option value="1">a = 0, b = 0</option>
-						<option value="2">a = 0, b = 1</option>
-						<option value="3" disabled>a = 1, b = 0</option>
-						<option value="4" disabled>a = 1, b = 1</option>
+						<option value="1">x = 0, y = 0</option>
+						<option value="2">x = 0, y = 1</option>
+						<option value="3" disabled>x = 1, y = 0</option>
+						<option value="4" disabled>x = 1, y = 1</option>
 					</select>
 
 					<p>
@@ -160,9 +169,10 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 						<option value="3" disabled>|+&#10093</option>
 						<option value="4" disabled>|-&#10093</option>
 					</select>
-					
-					<p>Press the button to see if you'd succeed!</p><button
-						id="randombutton">Test!</button
+
+					<p>Press the button to see if you'd succeed!</p>
+					<button
+						id="randombutton" class="btn btn-outline-primary">Test!</button
 					>
 
 					<p>
