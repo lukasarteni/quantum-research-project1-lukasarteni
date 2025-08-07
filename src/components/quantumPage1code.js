@@ -136,9 +136,9 @@ document
   .getElementById("randombuttonBob")
   .addEventListener("click", () => {
     if (websitechoice == 0) {
-      var chance = 0.85;
+      var chance = 0.85355339059;
       if (AliceMeasurement == 1) {
-        chance = 0.15;
+        chance = 0.146446609;
       }
       if (Math.random() < chance) {
         BobMeasurement = "π/8";
@@ -157,9 +157,9 @@ document
       }
 
     } else if (websitechoice == 1) {
-      var chance = 0.85;
+      var chance = 0.85355339059;
       if (AliceMeasurement == 1) {
-        chance = 0.15;
+        chance = 0.146446609;
       }
       if (Math.random() < chance) {
         BobMeasurement = "-π/8";
@@ -178,9 +178,9 @@ document
       }
     }
     else if (websitechoice == 2) {
-      var chance = 0.85;
+      var chance = 0.85355339059;
       if (AliceMeasurement == "-") {
-        chance = 0.15;
+        chance = 0.146446609;
       }
       if (Math.random() < chance) {
         BobMeasurement = "π/8";
@@ -199,10 +199,11 @@ document
       }
     }
     else {
-      var chance = 0.85;
+      var chance = 0.146446609;
       if (AliceMeasurement == "-") {
-        chance = 0.15;
+        chance = 0.85355339059;
       }
+
       if (Math.random() < chance) {
         BobMeasurement = "-π/8";
         document.getElementById("measurementOutcomeB").textContent =
@@ -219,36 +220,96 @@ document
           BobMeasurement;
       }
     }
+    checkUpdateConclusion();
+
   });
 
 
 
-  function checkCHSHtable(x, y, a, b,identitfier) {
-							
+function checkUpdateConclusion() {
+  var x;
+  var y;
+  var a;
+  var b;
+  if (websitechoice == 0) {
+    x = 0;
+    y = 0;
+  }
+  else if (websitechoice == 1) {
+    x = 0;
+    y = 1;
+  }
+  else if (websitechoice == 2) {
+    x = 1;
+    y = 0;
+  }
+  else if (websitechoice == 3) {
+    x = 1;
+    y = 1;
+  }
+  a = AliceMeasurement;
+  b = BobMeasurement;
 
-							if (a == "+"||a=="0") {
-								a = 0;
-							} else if (a == "-"||a == "1") {
-								a = 1;
-							}
-							if (b == "pi/8" || b=="-pi/8") {
-								b = 0;
-							} else if (b == "5pi/8" || b=="3pi/8") {
-								b = 1;
-							}
-							if ((x && y) == (a !== b)) {
-								document.getElementById(
-									identitfier,
-								).textContent = "True";
-								return 1;
-							} else {
-								document.getElementById(
-									identitfier,
-								).textContent = "False";
-								return 0;
-							}
-						}
+  if (a == "+" || a == "0") {
+    a = 0;
+  } else if (a == "-" || a == "1") {
+    a = 1;
+  }
+  if (b == "π/8" || b == "-π/8") {
+    b = 0;
+  } else if (b == "5π/8" || b == "3π/8") {
+    b = 1;
+  }
+  //alert("a"+a+" b "+b+" x " +x +" y "+y);
 
+  document.getElementById(
+    "finalOutcomeX"
+  ).textContent = x;
+  document.getElementById(
+    "finalOutcomeY"
+  ).textContent = y;
+  document.getElementById(
+    "finalOutcomeA"
+  ).textContent = a;
+  document.getElementById(
+    "finalOutcomeB"
+  ).textContent = b;
+  if ((x && y) == (a !== b)) {
+    document.getElementById(
+      "finalOutcomeBoolean"
+    ).textContent = "True";
+    recordWin();
+  } else {
+    document.getElementById(
+      "finalOutcomeBoolean"
+    ).textContent = "False";
+    recordloss();
+  }
+}
+
+
+var numTrials = 0;
+var numWins = 0;
+var winPercent = 0;
+function recordWin() {
+
+  numWins = 1 + numWins;
+  numTrials = 1 + numTrials;
+  winPercent = 100*numWins / numTrials;
+  updateStats();
+}
+function recordloss() {
+
+  numTrials = 1 + numTrials;
+  winPercent = 100* numWins / numTrials;
+  updateStats(); 
+}
+function updateStats() {
+  //alert("trials:" + numTrials+ " win percent"+winPercent);
+  document.getElementById("finalOutcomeTrials").textContent = numTrials;
+  document.getElementById("finalOutcomeWins").textContent = numWins;
+  document.getElementById("finalOutcomeWinPercent").textContent = winPercent;
+}
 
 
 Plotly.newPlot('myDiv2', data, layout)
