@@ -11,6 +11,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://lukasarteni.com",
   integrations: [mdx(), sitemap(), react()],
+  output:'static',
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
