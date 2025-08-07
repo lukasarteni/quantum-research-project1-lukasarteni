@@ -68,9 +68,14 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 				We will use this behavior to increase our winning probablity!
 
 				<br /><br />
-				For this example, We will use |&phi;&rang; = (1 / &radic;2) (|0&rang;<sub>A</sub> &otimes; |0&rang;<sub>B</sub> + |1&rang;<sub>A</sub> &otimes; |1&rang;<sub>B</sub>)
-				<br>
-				Simply if either Alice of Bob measure |0&rang; or |1&rang;, the other will also have the same qubit when measured.
+				For this example, We will use |&phi;&rang; = (1 / &radic;2) (|0&rang;<sub
+					>A</sub
+				> &otimes; |0&rang;<sub>B</sub> + |1&rang;<sub>A</sub> &otimes; |1&rang;<sub
+					>B</sub
+				>)
+				<br />
+				Simply if either Alice of Bob measure |0&rang; or |1&rang;, the other
+				will also have the same qubit when measured.
 				<br />
 			</p>
 			<p>
@@ -78,7 +83,7 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 				Bob recieve from the Referee.
 			</p>
 			<Image src={chshimage2} alt="chsh game" width="500" height="500" />
-			
+
 			<div>
 				<style>
 					.table_component {
@@ -148,75 +153,74 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 						</tbody>
 					</table>
 					<p>Step 1) Alice recieves x, Bob gets y</p>
-					<label for="aliceStrategy">Options:</label>
-					<select id="aliceStrategy" name="aliceStrategy">
-						<option value="1">x = 0, y = 0</option>
-						<option value="2">x = 0, y = 1</option>
-						<option value="3" disabled>x = 1, y = 0</option>
-						<option value="4" disabled>x = 1, y = 1</option>
+					<div id="myDiv2"></div>
+
+					<script src="../../src/components/quantumPage1code.js"
+					>
+				</script>
+
+					<label for="SelectorForGraph1">Options:</label>
+					<select id="SelectorForGraph1" name="SelectorForGraph1">
+						<option value="0">x = 0, y = 0</option>
+						<option value="1">x = 0, y = 1</option>
+						<option value="2">x = 1, y = 0</option>
+						<option value="3">x = 1, y = 1</option>
 					</select>
 
 					<p>
-						We will assume that Alice will always measure what we
-						choose in this example case, despite it being random
+						Alice will measure in the red basis and Bob will measure in the blue basis.
 					</p>
-					<label for="aliceStrategy"
-						>Alice measures Qubit and gets :
-					</label>
-					<select id="aliceStrategy" name="aliceStrategy">
-						<option value="1">|0&#10093</option>
-						<option value="2">|1&#10093</option>
-						<option value="3" disabled>|+&#10093</option>
-						<option value="4" disabled>|-&#10093</option>
-					</select>
+					<p>
+						Step 2) Alice measures the entangled qubit with the <b>red</b>
+						basis above:
+					</p>
+					
 
-					<p>Press the button to see if you'd succeed!</p>
-					<button
-						id="randombutton" class="btn btn-outline-primary">Test!</button
+					<div style="display: inline-block;">Alice measured: |</div>
+					<div id="measurementOutcomeA" style="display: inline-block;">0</div>
+					<div style="display: inline-block;">&gt;</div>
+					<button id="randombutton" class="btn btn-outline-primary"
+						>Random Measurement!</button
+					>
+					<p>
+						<br>
+						Step 3) Bob measures the entangled qubit with the <b>blue</b>
+						basis above:
+					</p>
+					
+
+					<div style="display: inline-block;">Bob measured: cos(</div>
+					<div id="measurementOutcomeB" style="display: inline-block;">π/8</div>
+					<div style="display: inline-block;">)|0&gt;</div>
+					<div style="display: inline-block;">+ sin(</div>
+					<div id="measurementOutcomeB2" style="display: inline-block;">π/8</div>
+					<div style="display: inline-block;">)|1&gt;</div>
+					<button id="randombuttonBob" class="btn btn-outline-primary"
+						>Random Measurement!</button
 					>
 
 					<p>
-						&#124;B<sub>0</sub>&gt; = cos(&#960;/8)&#124;0&gt;<br />
-						&#124;B<sub>1</sub>&gt; = sin(&#960;/8)&#124;0&gt;<br />
-						<br />
-						Probability Bob collapses to &#124;B<sub>0</sub>&gt; =
-						&#124;cos(&#960;/8)&#124;<sup>2</sup> &lt;0 &#124; 0&gt;
-						= 0.8536<br />
-						Probability Bob collapses to &#124;B<sub>1</sub>&gt; =
-						&#124;sin(&#960;/8)&#124;<sup>2</sup> &lt;1 &#124; 1&gt;
-						= 0.1464
+						<br>
+						Based on the measurements we will send values 
+						to the Referee based on the chart at the top.
+						Remember to win, we need to fulfill the equation: 
+						<br> x ^ y = a XOR b
 					</p>
-
-					<script>
-						// Alice dropdown alert
-						document
-							.getElementById("aliceStrategy")
-							.addEventListener("change", function () {
-								const selectedText =
-									this.options[this.selectedIndex].value;
-								alert("Alice selected: " + selectedText);
-							});
-						document
-							.getElementById("randombutton")
-							.addEventListener("click", () => {
-								if (Math.random() < 0.8536) {
-									alert("Success");
-								} else {
-									alert("Fail");
-								}
-							});
-						function hide(id) {
-							let thingWeAreHiding =
-								document.getElementById("id");
-							thingWeAreHiding.style.visibility = "hidden";
-						}
-
-						function show(id) {
-							let thingWeAreShowing =
-								document.getElementById("id");
-							thingWeAreShowing.style.visibility = "visible";
-						}
-					</script>
+					<div style="display: inline-block;">In this case: </div>
+					<div id="measurementOutcomeB" style="display: inline-block;">0</div>
+					<div style="display: inline-block;"> ^ </div>
+					<div id="measurementOutcomeB2" style="display: inline-block;">0</div>
+					<div style="display: inline-block;"> = </div>
+					
+					<div id="measurementOutcomeB" style="display: inline-block;">0</div>
+					<div style="display: inline-block;"> XOR </div>
+					<div id="measurementOutcomeB2" style="display: inline-block;">0</div>
+					<br>
+					<div style="display: inline-block;">Which is: </div>
+					<div id="measurementOutcomeB" style="display: inline-block;">TRUE</div>
+					
+					
+					
 				</div>
 				<br />
 				<Footer />

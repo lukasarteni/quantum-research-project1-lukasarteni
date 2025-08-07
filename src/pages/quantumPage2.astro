@@ -93,15 +93,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				<button id="moreButton"> MORE!</button>
 				<br />
 
-				
 				<script>
-					
-
 					document
 						.getElementById("buttonUpdater")
 						.addEventListener("click", () => {
 							alert("sup");
-							const math = require('mathjs')
+							const math = require("mathjs");
 
 							const A = math.matrix([[[0], [1]]]);
 							const B = [[0], [1]];
@@ -128,6 +125,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 						});
 				</script>
 			</div>
+			<p>
+				&#124;B<sub>0</sub>&gt; = cos(&#960;/8)&#124;0&gt;<br />
+				&#124;B<sub>1</sub>&gt; = sin(&#960;/8)&#124;0&gt;<br />
+				<br />
+				Probability Bob collapses to &#124;B<sub>0</sub>&gt; =
+				&#124;cos(&#960;/8)&#124;<sup>2</sup> &lt;0 &#124; 0&gt; = 0.8536<br
+				/>
+				Probability Bob collapses to &#124;B<sub>1</sub>&gt; =
+				&#124;sin(&#960;/8)&#124;<sup>2</sup> &lt;1 &#124; 1&gt; = 0.1464
+			</p>
 		</main>
 		<Footer />
 	</body>

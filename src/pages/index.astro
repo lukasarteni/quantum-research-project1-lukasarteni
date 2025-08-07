@@ -115,6 +115,20 @@ Plotly.newPlot('myDiv2', data, layout)
 					height="500"
 				/>
 			</div>
+
+			<script>
+				function hide(id) {
+							let thingWeAreHiding =
+								document.getElementById("id");
+							thingWeAreHiding.style.visibility = "hidden";
+						}
+
+						function show(id) {
+							let thingWeAreShowing =
+								document.getElementById("id");
+							thingWeAreShowing.style.visibility = "visible";
+						}
+			</script>
 			<p>
 				The CHSH game is a quantum game that highlights that the
 				benefits of quantum entaglement can be used to perform better
