@@ -19,7 +19,7 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 			crossorigin="anonymous"
 		/>
-		 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	</head>
 	<body>
 		<Header />
@@ -157,9 +157,8 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 					<div id="myDiv2"></div>
 
 					<script src="../../src/components/quantumPage1code.js"
-					>
-				</script>
-
+					></script>
+					
 					<label for="SelectorForGraph1">Options:</label>
 					<select id="SelectorForGraph1" name="SelectorForGraph1">
 						<option value="0">x = 0, y = 0</option>
@@ -169,71 +168,118 @@ import chshimage2 from "../../src/content/blog/chshBases.png";
 					</select>
 
 					<p>
-						Alice will measure in the red basis and Bob will measure in the blue basis.
+						Alice will measure in the red basis and Bob will measure
+						in the blue basis.
 					</p>
 					<p>
-						Step 2) Alice measures the entangled qubit with the <b>red</b>
+						Step 2) Alice measures the entangled qubit with the <b
+							>red</b
+						>
 						basis above:
 					</p>
-					
 
 					<div style="display: inline-block;">Alice measured: |</div>
-					<div id="measurementOutcomeA" style="display: inline-block;">0</div>
+					<div
+						id="measurementOutcomeA"
+						style="display: inline-block;"
+					>
+						0
+					</div>
 					<div style="display: inline-block;">&gt;</div>
 					<button id="randombutton" class="btn btn-outline-primary"
 						>Random Measurement!</button
 					>
 					<p>
-						<br>
-						Step 3) Bob measures the entangled qubit with the <b>blue</b>
+						<br />
+						Step 3) Bob measures the entangled qubit with the <b
+							>blue</b
+						>
 						basis above:
 					</p>
-					
 
 					<div style="display: inline-block;">Bob measured: cos(</div>
-					<div id="measurementOutcomeB" style="display: inline-block;">π/8</div>
+					<div
+						id="measurementOutcomeB"
+						style="display: inline-block;"
+					>
+						π/8
+					</div>
 					<div style="display: inline-block;">)|0&gt;</div>
 					<div style="display: inline-block;">+ sin(</div>
-					<div id="measurementOutcomeB2" style="display: inline-block;">π/8</div>
+					<div
+						id="measurementOutcomeB2"
+						style="display: inline-block;"
+					>
+						π/8
+					</div>
 					<div style="display: inline-block;">)|1&gt;</div>
 					<button id="randombuttonBob" class="btn btn-outline-primary"
 						>Random Measurement!</button
 					>
+					<button id="randombuttonBobx10" class="btn btn-outline-primary"
+						>25 Random Measurements!</button
+					>
+					<button id="reset" class="btn btn-outline-primary"
+						>Reset</button
+					>
 
 					<p>
-						<br>
-						Based on the measurements we will send values 
-						to the Referee based on the chart at the top.
-						Remember to win, we need to fulfill the equation: 
-						<br> x ^ y = a XOR b
+						<br />
+						Based on the measurements we will send values to the Referee
+						based on the chart at the top. Remember to win, we need to
+						fulfill the equation:
+						<br /> x ^ y = a XOR b
 					</p>
-					<div style="display: inline-block;">In this case: </div>
-					<div id="finalOutcomeX" style="display: inline-block;">0</div>
-					<div style="display: inline-block;"> ^ </div>
-					<div id="finalOutcomeY" style="display: inline-block;">0</div>
-					<div style="display: inline-block;"> = </div>
-					
-					<div id="finalOutcomeA" style="display: inline-block;">0</div>
-					<div style="display: inline-block;"> XOR </div>
-					<div id="finalOutcomeB" style="display: inline-block;">0</div>
-					<br>
-					<div style="display: inline-block;">Which is: </div>
-					<div id="finalOutcomeBoolean" style="display: inline-block;">TRUE</div>
-					
-					<p><br>
+					<div style="display: inline-block;">In this case:</div>
+					<div id="finalOutcomeX" style="display: inline-block;">
+						0
+					</div>
+					<div style="display: inline-block;">^</div>
+					<div id="finalOutcomeY" style="display: inline-block;">
+						0
+					</div>
+					<div style="display: inline-block;">=</div>
+
+					<div id="finalOutcomeA" style="display: inline-block;">
+						0
+					</div>
+					<div style="display: inline-block;">XOR</div>
+					<div id="finalOutcomeB" style="display: inline-block;">
+						0
+					</div>
+					<br />
+					<div style="display: inline-block;">Which is:</div>
+					<div
+						id="finalOutcomeBoolean"
+						style="display: inline-block;"
+					>
+						TRUE
+					</div>
+
+					<p>
+						<br />
 						Statistics:
 					</p>
-					
-					<div style="display: inline-block;">Number of trials: </div>
-					<div id="finalOutcomeTrials" style="display: inline-block;">0</div>
-					<br>
-					<div style="display: inline-block;">Number of wins: </div>
-					<div id="finalOutcomeWins" style="display: inline-block;">0</div>
-					<br>
-					<div style="display: inline-block;">Winning: </div>
-					<div id="finalOutcomeWinPercent" style="display: inline-block;">0</div>
-					<div style="display: inline-block;">%</div>
+					<div id="QuantumPage1Chart2"></div>
 
+					<div style="display: inline-block;">Number of trials:</div>
+					<div id="finalOutcomeTrials" style="display: inline-block;">
+						0
+					</div>
+					<br />
+					<div style="display: inline-block;">Number of wins:</div>
+					<div id="finalOutcomeWins" style="display: inline-block;">
+						0
+					</div>
+					<br />
+					<div style="display: inline-block;">Winning:</div>
+					<div
+						id="finalOutcomeWinPercent"
+						style="display: inline-block;"
+					>
+						0
+					</div>
+					<div style="display: inline-block;">%</div>
 				</div>
 				<br />
 				<Footer />

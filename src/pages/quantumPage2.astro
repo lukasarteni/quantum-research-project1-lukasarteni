@@ -14,6 +14,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<body>
 		<Header />
 		<main>
+			<p>
+				&vert;A<sub>0</sub>&rangle; and &vert;A<sub>1</sub>&rangle;
+				<br />
+				&vert;B<sub>0</sub>&rangle; and &vert;B<sub>1</sub>&rangle;
+			</p>
 			<div
 				style="display:flex; align-items:center; justify-content:center;"
 			>
@@ -33,56 +38,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			<div>
 				<label>Alpha angle (degrees):</label>
 				<input type="number" class="alpha" value="0" id="hi" />
-				<br />
-				Choose angle between &vert;A<sub>0</sub>&rangle; and &vert;A<sub
-					>1</sub
-				>&rangle; :
-
-				<label>
-					<input
-						type="radio"
-						name="alphadiffangle"
-						value="+90"
-						checked
-					/>
-					+90°
-				</label>
-				<label>
-					<input
-						type="radio"
-						name="alphadiffangle"
-						value="-90"
-						disabled
-					/>
-					-90°
-				</label>
-				<br />
-				<br />
 				<div>
 					<label>Beta angle (degrees):</label>
 					<input type="number" class="Beta" value="45" name="hi" />
 					<br />
-					Choose angle between &vert;B<sub>0</sub>&rangle; and &vert;B<sub
-						>1</sub
-					>&rangle; :
-
-					<input
-						type="radio"
-						name="betadiffangle"
-						value="+90"
-						checked
-					/>
-					+90°
-
-					<label>
-						<input
-							type="radio"
-							name="betadiffangle"
-							value="-90"
-							disabled
-						/>
-						-90°
-					</label>
 				</div>
 				<button name="Submit" id="buttonUpdater"
 					>Update With New Values</button
@@ -93,48 +52,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				<button id="moreButton"> MORE!</button>
 				<br />
 
-				<script>
-					document
-						.getElementById("buttonUpdater")
-						.addEventListener("click", () => {
-							alert("sup");
-							const math = require("mathjs");
-
-							const A = math.matrix([[[0], [1]]]);
-							const B = [[0], [1]];
-
-							const transposed = math.transpose(A);
-							const product = math.multiply(A, B);
-							alert(product);
-						});
-					document
-						.getElementById("moreButton")
-						.addEventListener("click", () => {
-							drawVector(
-								0.707106781,
-								0.707106781,
-								"green",
-								"|+⟩",
-							);
-							drawVector(
-								0.707106781,
-								-0.707106781,
-								"brown",
-								"|-⟩",
-							);
-						});
-				</script>
+				
 			</div>
-			<p>
-				&#124;B<sub>0</sub>&gt; = cos(&#960;/8)&#124;0&gt;<br />
-				&#124;B<sub>1</sub>&gt; = sin(&#960;/8)&#124;0&gt;<br />
-				<br />
-				Probability Bob collapses to &#124;B<sub>0</sub>&gt; =
-				&#124;cos(&#960;/8)&#124;<sup>2</sup> &lt;0 &#124; 0&gt; = 0.8536<br
-				/>
-				Probability Bob collapses to &#124;B<sub>1</sub>&gt; =
-				&#124;sin(&#960;/8)&#124;<sup>2</sup> &lt;1 &#124; 1&gt; = 0.1464
-			</p>
+			
 		</main>
 		<Footer />
 	</body>

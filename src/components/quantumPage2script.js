@@ -69,49 +69,6 @@ function changeData(angle, line) {
   Plotly.restyle('myDiv2', { 'theta': [[0, angle, 0, angle + 90, 0]] }, [line])
 }
 
-var dataForChart2 = [
-  {
-    type: "scatter",
-
-    mode: "lines+markers",
-    x: [],
-    y: [],
-
-    line: {
-      color: "#ff0000ff",
-      width: 5
-    },
-
-
-
-  },
-
-
-]
-
-var layoutForChart2 = {
-  title: { text: 'Win Percentage vs Number of Trials' },
-  xaxis: {
-    title: {
-      text: 'Number of Trials'
-    },
-  },
-  yaxis: {
-    title: {
-      text: 'Win Percentage'
-    },
-    range: [0, 1],
-    autorange: false
-  },
-
-
-
-
-}
-
-function changeDataForChart2(inputx, inputy) {
-  Plotly.extendTraces('QuantumPage1Chart2', { 'x': [[inputx]], 'y': [[inputy]] }, [0])
-}
 
 
 
@@ -175,122 +132,96 @@ document
     }
   });
 var BobMeasurement = "π/8";
-function randombuttonBobmeasurefunction() {
-  if (websitechoice == 0) {
-    var chance = 0.85355339059;
-    if (AliceMeasurement == 1) {
-      chance = 0.146446609;
-    }
-    if (Math.random() < chance) {
-      BobMeasurement = "π/8";
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-    else {
-      BobMeasurement = "5π/8";
-
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-
-  } else if (websitechoice == 1) {
-    var chance = 0.85355339059;
-    if (AliceMeasurement == 1) {
-      chance = 0.146446609;
-    }
-    if (Math.random() < chance) {
-      BobMeasurement = "-π/8";
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-    else {
-      BobMeasurement = "3π/8";
-
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-  }
-  else if (websitechoice == 2) {
-    var chance = 0.85355339059;
-    if (AliceMeasurement == "-") {
-      chance = 0.146446609;
-    }
-    if (Math.random() < chance) {
-      BobMeasurement = "π/8";
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-    else {
-      BobMeasurement = "5π/8";
-
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-  }
-  else {
-    var chance = 0.146446609;
-    if (AliceMeasurement == "-") {
-      chance = 0.85355339059;
-    }
-
-    if (Math.random() < chance) {
-      BobMeasurement = "-π/8";
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-    else {
-      BobMeasurement = "3π/8";
-
-      document.getElementById("measurementOutcomeB").textContent =
-        BobMeasurement;
-      document.getElementById("measurementOutcomeB2").textContent =
-        BobMeasurement;
-    }
-  }
-  checkUpdateConclusion();
-}
 document
   .getElementById("randombuttonBob")
   .addEventListener("click", () => {
-    randombuttonBobmeasurefunction();
+    if (websitechoice == 0) {
+      var chance = 0.85355339059;
+      if (AliceMeasurement == 1) {
+        chance = 0.146446609;
+      }
+      if (Math.random() < chance) {
+        BobMeasurement = "π/8";
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
+      else {
+        BobMeasurement = "5π/8";
 
-  });
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
 
-document
-  .getElementById("randombuttonBobx10")
-  .addEventListener("click", () => {
+    } else if (websitechoice == 1) {
+      var chance = 0.85355339059;
+      if (AliceMeasurement == 1) {
+        chance = 0.146446609;
+      }
+      if (Math.random() < chance) {
+        BobMeasurement = "-π/8";
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
+      else {
+        BobMeasurement = "3π/8";
 
-    for (let i = 0; i < 30; i++) {
-
-      randombuttonBobmeasurefunction();
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
     }
-  });
-document
-  .getElementById("reset")
-  .addEventListener("click", () => {
+    else if (websitechoice == 2) {
+      var chance = 0.85355339059;
+      if (AliceMeasurement == "-") {
+        chance = 0.146446609;
+      }
+      if (Math.random() < chance) {
+        BobMeasurement = "π/8";
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
+      else {
+        BobMeasurement = "5π/8";
 
-    numTrials = 0;
-    numWins = 0;
-    winPercent = 0;
-    Plotly.restyle('QuantumPage1Chart2', { 'x': [[]], 'y': [[]] }, [0])
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
+    }
+    else {
+      var chance = 0.146446609;
+      if (AliceMeasurement == "-") {
+        chance = 0.85355339059;
+      }
 
-    document.getElementById("finalOutcomeTrials").textContent = numTrials;
-    document.getElementById("finalOutcomeWins").textContent = numWins;
-    document.getElementById("finalOutcomeWinPercent").textContent = winPercent;
+      if (Math.random() < chance) {
+        BobMeasurement = "-π/8";
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
+      else {
+        BobMeasurement = "3π/8";
+
+        document.getElementById("measurementOutcomeB").textContent =
+          BobMeasurement;
+        document.getElementById("measurementOutcomeB2").textContent =
+          BobMeasurement;
+      }
+    }
+    checkUpdateConclusion();
+
   });
 
 
@@ -364,25 +295,51 @@ function recordWin() {
 
   numWins = 1 + numWins;
   numTrials = 1 + numTrials;
-  winPercent = 100 * numWins / numTrials;
+  winPercent = 100*numWins / numTrials;
   updateStats();
 }
 function recordloss() {
 
   numTrials = 1 + numTrials;
-  winPercent = 100 * numWins / numTrials;
-  updateStats();
+  winPercent = 100* numWins / numTrials;
+  updateStats(); 
 }
 function updateStats() {
   //alert("trials:" + numTrials+ " win percent"+winPercent);
   document.getElementById("finalOutcomeTrials").textContent = numTrials;
   document.getElementById("finalOutcomeWins").textContent = numWins;
   document.getElementById("finalOutcomeWinPercent").textContent = winPercent;
-  changeDataForChart2(numTrials, winPercent / 100);
 }
 
+document
+						.getElementById("buttonUpdater")
+						.addEventListener("click", () => {
+							alert("sup");
+							const math = require("mathjs");
 
-Plotly.newPlot('myDiv2', data, layout);
-Plotly.newPlot('QuantumPage1Chart2', dataForChart2, layoutForChart2);
+							const A = math.matrix([[[0], [1]]]);
+							const B = [[0], [1]];
 
+							const transposed = math.transpose(A);
+							const product = math.multiply(A, B);
+							alert(product);
+						});
+					document
+						.getElementById("moreButton")
+						.addEventListener("click", () => {
+							drawVector(
+								0.707106781,
+								0.707106781,
+								"green",
+								"|+⟩",
+							);
+							drawVector(
+								0.707106781,
+								-0.707106781,
+								"brown",
+								"|-⟩",
+							);
+						});
+            
+Plotly.newPlot('myDiv2', data, layout)
 
