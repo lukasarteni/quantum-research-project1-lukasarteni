@@ -21,7 +21,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<body>
 		<Header />
 		<main>
-			<button id=reset>Reset</button>
+			<button id="reset">Reset</button>
 			<p>
 				&vert;A<sub>0</sub>&rangle; and &vert;A<sub>1</sub>&rangle;
 				<br />
@@ -31,7 +31,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				style="display:flex; align-items:center; justify-content:center;"
 			>
 				<h1>CHSH Tinkerer</h1><br />
-				
 			</div>
 
 			<div
@@ -46,23 +45,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			</p>
 			<script src="../../src/components/quantumPage2script.js"></script>
 			<div id="qpage2chart1"></div>
-
+			
 			<div>
 				<label>Alpha angle (degrees):</label>
-				<input type="number" class="alpha" value="0" id="hi" />
-				<div>
-					<label>Beta angle (degrees):</label>
-					<input type="number" class="Beta" value="45" name="hi" />
-					<br />
-				</div>
-			</div>
-			<div id="page2AliceBasis" style="display: inline-block;"></div><div
-				id="page2BobBasis"
-				style="display: inline-block;"
-			>
-				Number of trials:
+				<input id="alphaAnglePicker" class="form-control" type="number" value="0" />
+				<br>
+				<label>Beta angle (degrees):</label>
+				<input id="betaAnglePicker" class="form-control" type="number" value="22.5" />
+				<span>Difference in angle between the basis: </span><span id="diffInAngleText">22.5</span><span> degrees</span>
+				<br>
+				<span>Win Percentage: </span><span id="winPercenttext">85.35533905932738</span><span> %</span>
+			
+			
 			</div>
 		</main>
+		
+
 		<Footer />
 	</body>
 </html>
