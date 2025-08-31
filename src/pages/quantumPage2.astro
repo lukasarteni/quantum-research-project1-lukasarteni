@@ -10,10 +10,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	</head>
 	<body>
 		<Header />
 		<main>
+			<button id=reset>Reset</button>
 			<p>
 				&vert;A<sub>0</sub>&rangle; and &vert;A<sub>1</sub>&rangle;
 				<br />
@@ -23,6 +31,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				style="display:flex; align-items:center; justify-content:center;"
 			>
 				<h1>CHSH Tinkerer</h1><br />
+				
 			</div>
 
 			<div
@@ -35,6 +44,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				sin(&alpha;)&vert;1&rangle; and &vert;B<sub>0</sub>&rangle; =
 				cos(&beta;)&vert;0&rangle; + sin(&beta;)&vert;1&rangle;
 			</p>
+			<script src="../../src/components/quantumPage2script.js"></script>
+			<div id="qpage2chart1"></div>
+
 			<div>
 				<label>Alpha angle (degrees):</label>
 				<input type="number" class="alpha" value="0" id="hi" />
@@ -43,18 +55,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					<input type="number" class="Beta" value="45" name="hi" />
 					<br />
 				</div>
-				<button name="Submit" id="buttonUpdater"
-					>Update With New Values</button
-				>
 			</div>
-			<div>
-				<p>hi</p>
-				<button id="moreButton"> MORE!</button>
-				<br />
-
-				
+			<div id="page2AliceBasis" style="display: inline-block;"></div><div
+				id="page2BobBasis"
+				style="display: inline-block;"
+			>
+				Number of trials:
 			</div>
-			
 		</main>
 		<Footer />
 	</body>
