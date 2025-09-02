@@ -11,7 +11,44 @@ var data = [
 
     line: {
       color: "#ff0000ff",
-      width: 5
+      width: 6
+    },
+
+    marker: {
+      color: "#001764ff",
+      symbol: "square",
+      size: 8
+    },
+    subplot: "polar"
+  },
+  {
+    type: "scatterpolar",
+
+    mode: "lines+markers",
+    r: [0, 1, 0, 1],
+    theta: [0, 45, 90, 135],
+
+    line: {
+      color: "#ff0000ff",
+      width: 1
+    },
+
+    marker: {
+      color: "#001764ff",
+      symbol: "square",
+      size: 8
+    },
+    subplot: "polar"
+  },
+
+  {
+    type: "scatterpolar",
+    mode: "lines+markers",
+    r: [0, 1, 0, 1],
+    theta: [0, 22.5, 0, 112.5],
+    line: {
+      color: "#00e1ffff",
+      width: 6
     },
 
     marker: {
@@ -25,10 +62,10 @@ var data = [
     type: "scatterpolar",
     mode: "lines+markers",
     r: [0, 1, 0, 1],
-    theta: [0, 22.5, 0, 112.5],
+    theta: [0, 67.5, 0, -22.5],
     line: {
       color: "#00e1ffff",
-      width: 5
+      width: 1
     },
 
     marker: {
@@ -37,7 +74,8 @@ var data = [
       size: 8
     },
     subplot: "polar"
-  }
+  },
+
 
 ]
 
@@ -68,15 +106,35 @@ var layout = {
 
 
 
-document
-  .getElementById("reset")
-  .addEventListener("click", () => {
-
-    alert("hi");
-  });
 
 
 var alphaAngle = 0;
+var alphaAngle2 = 45;
+var betaAngle = 22.5;
+var betaAngle2 = -22.5;
+var angleDiffVar = 22.5;
+
+document
+  .getElementById("reset")
+  .addEventListener("click", () => {
+    target1.value = 0;
+    target2.value = 45;
+    target3.value = 22.5;
+    target4.value = -22.5;
+    alphaAngle = 0;
+    alphaAngle2 = 45;
+    betaAngle = 22.5;
+    betaAngle2 = -22.5;
+    angleDiffVar = 22.5;
+    changeData(alphaAngle, 0);
+    changeData(alphaAngle2, 1);
+    changeData(betaAngle, 2);
+
+    changeData(betaAngle2, 3);
+
+
+    update();
+  });
 var target1 = document
   .getElementById("alphaAnglePicker");
 target1
@@ -86,43 +144,109 @@ target1
     changeData(alphaAngle, 0);
     update();
   });
-var betaAngle = 22.5;
-var angleDiffVar = 22.5;
 var target2 = document
-  .getElementById("betaAnglePicker");
+  .getElementById("alphaAnglePicker2");
 target2
   .addEventListener("change", () => {
-    betaAngle = Number(target2.value);
-    changeData(betaAngle, 1);
+    //alert("hi" + target2.value);
+    alphaAngle2 = Number(target2.value);
+    changeData(alphaAngle2, 1);
     update();
   });
 
+var target3 = document
+  .getElementById("betaAnglePicker");
+target3
+  .addEventListener("change", () => {
+    betaAngle = Number(target3.value);
+
+    changeData(betaAngle, 2);
+    update();
+  });
+
+var target4 = document
+  .getElementById("betaAnglePicker2");
+target4
+  .addEventListener("change", () => {
+    betaAngle2 = Number(target4.value);
+
+    changeData(betaAngle2, 3);
+    update();
+  });
+var websitechoice = Number(0);
+document
+  .getElementById("SelectorForGraph1")
+  .addEventListener("change", function () {
+
+    websitechoice = Number(this.value);
+
+    if (websitechoice == 0) {
+      changeLineThick(6, 0);
+      changeLineThick(6, 2);
+      changeLineThick(1, 1);
+      changeLineThick(1, 3);
+    }
+    else if (websitechoice == 1) {
+      changeLineThick(6, 0);
+      changeLineThick(1, 2);
+      changeLineThick(1, 1);
+      changeLineThick(6, 3);
+    }
+    else if (websitechoice == 2) {
+      changeLineThick(1, 0);
+      changeLineThick(6, 2);
+      changeLineThick(6, 1);
+      changeLineThick(1, 3);
+    }
+
+    else if (websitechoice == 3) {
+      changeLineThick(1, 0);
+      changeLineThick(1, 2);
+      changeLineThick(6, 1);
+      changeLineThick(6, 3);
+    }
+
+
+
+  });
+
+function changeLineThick(thick, line) {
+  //alert("theta = " +angle+ " and " + (angle +90));
+  Plotly.restyle('qpage2chart1', { 'line.width': [thick] }, [line])
+}
 
 function update() {
-  angleDiffVar = angleDiffernce(alphaAngle, betaAngle);
-  document.getElementById("diffInAngleText").textContent = angleDiffVar ;
-  winPercentMethond(alphaAngle, betaAngle);
+  //angleDiffVar = angleDiffernceDegrees(alphaAngle, betaAngle);
+  angleDiffVar = "disabled"
+  document.getElementById("diffInAngleText").textContent = angleDiffVar;
+  winPercentMethond(alphaAngle, alphaAngle2, betaAngle, betaAngle2);
 }
 function changeData(angle, line) {
   //alert("theta = " +angle+ " and " + (angle +90));
 
   Plotly.restyle('qpage2chart1', { 'theta': [[0, angle, 0, angle + 90, 0]] }, [line])
 }
-function angleDiffernce(angle1, angle2) {
+function angleDiffernceDegrees(angle1, angle2) {
+  //alert(Math.abs((angle1 - angle2 + 180) % 360 - 180));
   return (Math.abs((angle1 - angle2 + 180) % 360 - 180));
 }
-function probABareEqual(num1, num2) {
-  return Math.pow(Math.cos(Math.PI / 180 * (num1 - num2)), 2);
+function degreesToRad(angle) {
+  return (Math.PI / 180 * angle);
 }
-function probABareDiff(num1, num2) {
-  return Math.pow(Math.sin(Math.PI / 180 * (num1 - num2)), 2);
+
+function probABareEqual(a1, a2) {
+  return Math.pow(Math.cos(degreesToRad(angleDiffernceDegrees(a1, a2))), 2);
 }
-function probABareEqual2(nums) {
-  return Math.pow(Math.cos(Math.PI / 180 * (nums)), 2);
+function probABareDiff(a1, a2) {
+  return Math.pow(Math.sin(degreesToRad(angleDiffernceDegrees(a1, a2))), 2);
 }
-function probABareDiff2(nums) {
-  return Math.pow(Math.sin(Math.PI / 180 * (nums)), 2);
+function probABareEqualAngleDiff(angleDiff) {
+  return Math.pow(Math.cos(degreesToRad(angleDiff)), 2);
 }
+function probABareDiffAngleDiff(angleDiff) {
+  return Math.pow(Math.sin(degreesToRad(angleDiff)), 2);
+}
+
 /*
 function winPercentMethond(a0, b0) {
   //alert(Math.cos(Math.PI));
@@ -141,16 +265,13 @@ function winPercentMethond(a0, b0) {
   document.getElementById("winPercenttext").textContent = result;
 
 }*/
-function winPercentMethond(a0, b0) {
-  
-  const a1 = Number(a0 + 90);
-  const b1 = Number(b0 + 90);
-  const angle1 = angleDiffVar
-  const angle2 = 90 - angle1;
-  //NOT REAL
-  const result = (3 * probABareEqual2(angle1) + probABareDiff2(angle2))/4;
-  document.getElementById("winPercenttext").textContent = result;
-  //not working
+function winPercentMethond(a0, a1, b0, b1) {
+
+
+  const result = probABareEqual(a0, b0) + probABareEqual(a0, b1) + probABareEqual(a1, b0) + probABareDiff(a1, b1);
+  //alert(document.getElementById("winPercenttext").textContent);
+  document.getElementById("winPercenttext").textContent = (result / 4) * 100;
+
 }
 
 
