@@ -135,43 +135,44 @@ document
 
     update();
   });
-  //here
-var target1 = document.getElementById("alphaAnglePicker");
-        target1.addEventListener("input", () => {
-          //alert("hi" + target1.value);
-          alphaAngle = Number(target1.value);
-          document.getElementById("alphaAngleShower").textContent = alphaAngle;
+var target1 = document
+  .getElementById("alphaAnglePicker");
+target1
+  .addEventListener("change", () => {
+    //alert("hi" + target1.value);
+    alphaAngle = Number(target1.value);
+    changeData(alphaAngle, 0);
+    update();
+  });
+var target2 = document
+  .getElementById("alphaAnglePicker2");
+target2
+  .addEventListener("change", () => {
+    //alert("hi" + target2.value);
+    alphaAngle2 = Number(target2.value);
+    changeData(alphaAngle2, 1);
+    update();
+  });
 
-          changeData(alphaAngle, 0);
-          update();
-        });
-        var target2 = document.getElementById("alphaAnglePicker2");
-        target2.addEventListener("input", () => {
-          //alert("hi" + target2.value);
-          alphaAngle2 = Number(target2.value);
-          document.getElementById("alpha2AngleShower").textContent = alphaAngle2;
+var target3 = document
+  .getElementById("betaAnglePicker");
+target3
+  .addEventListener("change", () => {
+    betaAngle = Number(target3.value);
 
-          changeData(alphaAngle2, 1);
-          update();
-        });
+    changeData(betaAngle, 2);
+    update();
+  });
 
-        var target3 = document.getElementById("betaAnglePicker");
-        target3.addEventListener("input", () => {
-          betaAngle = Number(target3.value);
-          document.getElementById("betaAngleShower").textContent = betaAngle;
+var target4 = document
+  .getElementById("betaAnglePicker2");
+target4
+  .addEventListener("change", () => {
+    betaAngle2 = Number(target4.value);
 
-          changeData(betaAngle, 2);
-          update();
-        });
-
-        var target4 = document.getElementById("betaAnglePicker2");
-        target4.addEventListener("input", () => {
-          betaAngle2 = Number(target4.value);
-          document.getElementById("beta2AngleShower").textContent = betaAngle2;
-          changeData(betaAngle2, 3);
-          update();
-        });
-  //end here
+    changeData(betaAngle2, 3);
+    update();
+  });
 var websitechoice = Number(0);
 document
   .getElementById("SelectorForGraph1")
@@ -215,20 +216,14 @@ function changeLineThick(thick, line) {
 }
 
 function update() {
-  angleDiffVar = angleDiffernceDegrees(alphaAngle, betaAngle);
-  let angleDiffVar2 = angleDiffernceDegrees(alphaAngle2, betaAngle);
-  let angleDiffVar3 = angleDiffernceDegrees(alphaAngle, betaAngle2);
-  let angleDiffVar4 = angleDiffernceDegrees(alphaAngle2, betaAngle2);
-
+  //angleDiffVar = angleDiffernceDegrees(alphaAngle, betaAngle);
+  angleDiffVar = "disabled"
   document.getElementById("diffInAngleText").textContent = angleDiffVar;
-  document.getElementById("diffInAngleText2").textContent = angleDiffVar2;
-  document.getElementById("diffInAngleText3").textContent = angleDiffVar3;
-  document.getElementById("diffInAngleText4").textContent = angleDiffVar4;
   winPercentMethond(alphaAngle, alphaAngle2, betaAngle, betaAngle2);
 }
 function changeData(angle, line) {
   //alert("theta = " +angle+ " and " + (angle +90));
-  
+
   Plotly.restyle('qpage2chart1', { 'theta': [[0, angle, 0, angle + 90, 0]] }, [line])
 }
 function angleDiffernceDegrees(angle1, angle2) {

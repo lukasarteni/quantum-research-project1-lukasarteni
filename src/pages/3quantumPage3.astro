@@ -1,0 +1,146 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Button } from "free-astro-components";
+import { Image } from "astro:assets";
+import chshimage from "../../src/content/blog/Chsh-illustration2.png";
+import chshimage2 from "../../src/content/blog/chshBases.png";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="range" data-mdb-range-init>
+        <label>Alpha angle for &vert;A<sub>0</sub>&rangle; in degrees:</label>
+        <span>0</span>
+        <input
+          id="alphaAnglePicker"
+          type="range"
+          class="form-range"
+          min="-180"
+          max="180"
+          step="0.5"
+          value="0"
+        />
+
+        <br />
+        <label>Alpha angle for &vert;A<sub>1</sub>&rangle; in degrees:</label>
+        <input
+          id="alphaAnglePicker2"
+          type="range"
+          class="form-range"
+          min="-180"
+          max="180"
+          step="0.5"
+          value="0"
+        />
+        <br />
+        <label>Beta angle for &vert;B<sub>0</sub>&rangle; in degrees:</label>
+        <input
+          id="betaAnglePicker"
+          type="range"
+          class="form-range"
+          min="-180"
+          max="180"
+          step="0.5"
+          value="0"
+        />
+        <br />
+        <label>Beta angle for &vert;B<sub>1</sub>&rangle; in degrees:</label>
+        <input
+          id="betaAnglePicker2"
+          type="range"
+          class="form-range"
+          min="-180"
+          max="180"
+          step="0.5"
+          value="0"
+        />
+        <br />
+      </div>
+
+      <input
+        id="customRange2"
+        type="range"
+        class="form-range"
+        min="-180"
+        max="180"
+        step="0.5"
+        value="0"
+      />
+
+      <span>Value: </span><span id="valueshown">0</span><br />
+      <span>Postion Value: </span><span id="valueshown2">0</span>
+      <script>
+        var alphaAngle = 0;
+        var alphaAngle2 = 45;
+        var betaAngle = 22.5;
+        var betaAngle2 = -22.5;
+        var angleDiffVar = 22.5;
+        var target16 = document.getElementById("customRange2");
+        target16.addEventListener("input", () => {
+          document.getElementById("valueshown").textContent = target16.value;
+        });
+
+        var target1 = document.getElementById("alphaAnglePicker");
+        target1.addEventListener("input", () => {
+          //alert("hi" + target1.value);
+          alphaAngle = Number(target1.value);
+          changeData(alphaAngle, 0);
+          update();
+        });
+        var target2 = document.getElementById("alphaAnglePicker2");
+        target2.addEventListener("input", () => {
+          //alert("hi" + target2.value);
+          alphaAngle2 = Number(target2.value);
+          changeData(alphaAngle2, 1);
+          update();
+        });
+
+        var target3 = document.getElementById("betaAnglePicker");
+        target3.addEventListener("input", () => {
+          betaAngle = Number(target3.value);
+
+          changeData(betaAngle, 2);
+          update();
+        });
+
+        var target4 = document.getElementById("betaAnglePicker2");
+        target4.addEventListener("input", () => {
+          betaAngle2 = Number(target4.value);
+
+          changeData(betaAngle2, 3);
+          update();
+        });
+        function update() {
+          //alert("update working");
+          return;
+        }
+        let a;
+        let b;
+        function changeData(a, b) {
+          document.getElementById("valueshown").textContent = a;
+          document.getElementById("valueshown2").textContent = b;
+        }
+      </script>
+    </main>
+    <br />
+  </body><Footer />
+</html>
+
+<!--- 
+
+--->
