@@ -129,12 +129,12 @@ document
     changeData(alphaAngle, 0);
     changeData(alphaAngle2, 1);
     changeData(betaAngle, 2);
-
     changeData(betaAngle2, 3);
+
     document.getElementById("alphaAngleShower").textContent = alphaAngle;
-    document.getElementById("alphaAngleShower2").textContent = alphaAngle;
-    document.getElementById("betaAnglePicker").textContent = alphaAngle;
-    document.getElementById("betaAnglePicker2").textContent = alphaAngle;
+    document.getElementById("alpha2AngleShower").textContent = alphaAngle2;
+    document.getElementById("betaAngleShower").textContent = betaAngle;
+    document.getElementById("beta2AngleShower").textContent = betaAngle2;
 
 
     update();
